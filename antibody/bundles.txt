@@ -11,6 +11,9 @@ zsh-users/zsh-autosuggestions
 sbodiu-pivotal/fly-zsh-autocomplete-plugin
 
 # these should be at last!
-sindresorhus/pure
+# Pure theme
+# sindresorhus/pure
+# Powerlevel10k theme
+romkatv/powerlevel10k
 zdharma/fast-syntax-highlighting
 zsh-users/zsh-history-substring-search

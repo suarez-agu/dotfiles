@@ -6,11 +6,14 @@
 export DOTFILES="$HOME/.dotfiles"
 
 # your project folder that we can `c [tab]` to
-export PROJECTS="$HOME/Code"
+export PROJECTS="$HOME/dev"
 
 # your default editor
 export EDITOR='vim'
 export VEDITOR='code'
+
+DISABLE_AUTO_UPDATE=true
+ZSH="$(antibody home)/https-COLON--SLASH--SLASH-github.com-SLASH-robbyrussell-SLASH-oh-my-zsh"
 
 # all of our zsh files
 typeset -U config_files
@@ -74,3 +77,16 @@ load-nvmrc() {
 }
 add-zsh-hook chpwd load-nvmrc
 load-nvmrc
+#
+export PATH="/usr/local/opt/openssl/bin:$PATH"
+
+export PATH="/usr/local/go/bin:$PATH"
+
+export DOTNET_ROOT=$HOME/dotnet
+export PATH=$PATH:$HOME/dotnet
+
+#source ~/.purepower
+
+alias sai="sudo apt install"
+
+export PATH="$HOME/.diff-so-fancy:$PATH"
