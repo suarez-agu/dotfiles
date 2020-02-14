@@ -8,6 +8,7 @@ mafredri/zsh-async
 rupa/z
 zsh-users/zsh-completions
 zsh-users/zsh-autosuggestions
+sbodiu-pivotal/fly-zsh-autocomplete-plugin
 
 # these should be at last!
 sindresorhus/pure
