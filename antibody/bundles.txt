@@ -9,6 +9,7 @@ rupa/z
 zsh-users/zsh-completions
 zsh-users/zsh-autosuggestions
 sbodiu-pivotal/fly-zsh-autocomplete-plugin
+ohmyzsh/ohmyzsh path:plugins/rbenv
 
 # these should be at last!
 # Pure theme
