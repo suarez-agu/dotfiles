@@ -13,8 +13,6 @@ sbodiu-pivotal/fly-zsh-autocomplete-plugin
 ohmyzsh/ohmyzsh path:plugins/rbenv
 
 # these should be at last!
-# Pure theme
-# sindresorhus/pure
 # Powerlevel10k theme
 romkatv/powerlevel10k
 zdharma/fast-syntax-highlighting

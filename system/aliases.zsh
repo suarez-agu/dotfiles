@@ -1,6 +1,4 @@
 #!/bin/sh
-alias ls="colorls"
-alias l="colorls -l"
 
 alias grep="grep --color=auto"
 alias duf="du -sh * | sort -hr"
