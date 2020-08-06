@@ -1,7 +1,7 @@
 #!/bin/sh
-alias ls='exa'
-alias ll='exa -l'
-alias lll='exa -l | less'
-alias lla='exa -la'
-alias llt='exa -T'
-alias llfu='exa -bghHliS --git'
+alias ls='exa --icons'
+alias ll='exa --icons -l'
+alias lll='exa --icons -l | less'
+alias lla='exa --icons -la'
+alias llt='exa --icons -T'
+alias llfu='exa --icons -bghHliS --git'
