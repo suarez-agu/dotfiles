@@ -11,6 +11,7 @@ zsh-users/zsh-completions
 zsh-users/zsh-autosuggestions
 sbodiu-pivotal/fly-zsh-autocomplete-plugin
 ohmyzsh/ohmyzsh path:plugins/rbenv
+lukechilds/zsh-nvm
 
 # these should be at last!
 # Powerlevel10k theme
