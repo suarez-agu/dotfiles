@@ -1,16 +1,16 @@
 #!/bin/sh
 install() {
-	curl -Lso /tmp/mono.zip https://github.com/JetBrains/JetBrainsMono/releases/download/v1.0.6/JetBrainsMono-1.0.6.zip
-	unzip -j /tmp/mono.zip '*/ttf/*' -d "$1"
+	curl -Lso '/tmp/JetBrains Mono Regular Nerd Font Complete.ttf' https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/JetBrainsMono/Regular/complete/JetBrains%20Mono%20Regular%20Nerd%20Font%20Complete.ttf
+	cp '/tmp/JetBrains Mono Regular Nerd Font Complete.ttf' "$1"
 
-	curl -Lso /tmp/hack.zip https://github.com/source-foundry/Hack/releases/download/v3.003/Hack-v3.003-ttf.zip
-	unzip -j /tmp/hack.zip -d "$1"
+	curl -Lso '/tmp/Hack Regular Nerd Font Complete.ttf' https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/Hack/Regular/complete/Hack%20Regular%20Nerd%20Font%20Complete.ttf
+	cp '/tmp/Hack Regular Nerd Font Complete.ttf' "$1"
 }
 
 if [ "$(uname -s)" = "Darwin" ]; then
 	if command -v brew >/dev/null 2>&1; then
 		brew tap homebrew/cask-fonts
-		brew cask install font-jetbrains-mono font-hack
+		brew cask install font-jetbrains-mono-nerd-font font-hack-nerd-font
 	else
 		install ~/Library/Fonts
 	fi
