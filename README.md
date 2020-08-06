@@ -1,4 +1,4 @@
-# carlos' dotfiles
+# heuristicAL' dotfiles
 
 [![Build Status][tb]][tp]
 [![Powered by Antibody][ab]][ap]
@@ -27,6 +27,7 @@ First, make sure you have all those things installed:
 - `tar`: to extract downloaded stuff
 - `zsh`: to actually run the dotfiles
 - `sudo`: some configs may need that
+- `exa`: **Only if not running on MacOS** Nice alternative to `ls`
 
 ### Install
 
