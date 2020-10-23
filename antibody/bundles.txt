@@ -4,17 +4,15 @@ caarlos0/zsh-git-fetch-merge kind:path
 caarlos0/zsh-git-sync kind:path
 caarlos0/zsh-mkc
 caarlos0/zsh-open-pr kind:path
-caarlos0/jvm
 mafredri/zsh-async
 rupa/z
 zsh-users/zsh-completions
 zsh-users/zsh-autosuggestions
 sbodiu-pivotal/fly-zsh-autocomplete-plugin
-ohmyzsh/ohmyzsh path:plugins/rbenv
-lukechilds/zsh-nvm
 
 # these should be at last!
 # Powerlevel10k theme
 romkatv/powerlevel10k
+
 zdharma/fast-syntax-highlighting
 zsh-users/zsh-history-substring-search
