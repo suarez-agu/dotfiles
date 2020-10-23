@@ -19,9 +19,4 @@ if command -v asdf >/dev/null 2>&1; then
 	asdf plugin add ruby
 	asdf plugin add nodejs
 	asdf plugin add python
-
-	# install latest language versions
-	asdf install ruby latest
-	asdf install nodejs latest
-	asdf install python latest
 fi
