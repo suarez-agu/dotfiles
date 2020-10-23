@@ -19,4 +19,13 @@ if command -v asdf >/dev/null 2>&1; then
 	asdf plugin add ruby
 	asdf plugin add nodejs
 	asdf plugin add python
+
+	ruby_latest=$(asdf latest ruby)
+	nodejs_latest=$(asdf latest nodejs)
+	python_latest=$(asdf latest python)
+
+	echo "ruby ${ruby_latest}
+nodejs ${nodejs_latest}
+python ${python_latest}" > ~/.tool-versions
+
 fi

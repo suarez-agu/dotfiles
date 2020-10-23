@@ -7,6 +7,13 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 . $HOME/.asdf/asdf.sh
+echo -e "\n. $(brew --prefix asdf)/asdf.sh" >> ~/.zshrc
+
+# append completions to fpath
+fpath=(${ASDF_DIR}/completions $fpath)
+# initialise completions with ZSH's compinit
+autoload -Uz compinit
+compinit
 
 # uncomment this and the last line for zprof info
 # zmodload zsh/zprof
@@ -73,3 +80,5 @@ export PATH="$HOME/.diff-so-fancy:$PATH"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+. /usr/local/opt/asdf/asdf.sh
