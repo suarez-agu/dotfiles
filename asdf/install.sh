@@ -1,4 +1,6 @@
 #!/bin/sh
+ASDF_FOLDER=~/.asdf
+
 if command -v brew >/dev/null 2>&1; then
 	# brew is installed, install using brew
 	# Also install all dependencies required by asdf or it's plugins
@@ -17,8 +19,10 @@ else
 	fi
 
 	# Install asdf using the default git method
-	git clone https://github.com/asdf-vm/asdf.git ~/.asdf
-	cd ~/.asdf || exit
+	if [ ! -d "$ASDF_FOLDER" ] ; then
+		git clone https://github.com/asdf-vm/asdf.git $ASDF_FOLDER
+	fi
+	cd "$ASDF_FOLDER" || exit
 	git checkout "$(git describe --abbrev=0 --tags)"
 fi
 
