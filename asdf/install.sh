@@ -10,6 +10,7 @@ else
 	if command -v apt >/dev/null 2>&1; then
 		# Also install all dependencies required by asdf or it's plugins
 		sudo apt install curl git
+		sudo apt autoremove
 	elif command -v dnf >/dev/null 2>&1; then
 		sudo dnf install curl git
 	elif command -v pacman >/dev/null 2>&1; then
