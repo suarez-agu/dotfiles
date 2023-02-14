@@ -9,7 +9,7 @@ export DOTFILES="$HOME/.dotfiles"
 export TERM_COLORS_PATH="${DOTFILES}/zsh/terminal-colors.zsh"
 
 # your project folder that we can `c [tab]` to
-export PROJECTS="$HOME/{{ .project_folder }}"
+export PROJECTS={{ .project_folder | quote }}
 
 # your default editor
 export EDITOR='vim'

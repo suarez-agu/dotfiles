@@ -5,4 +5,4 @@
 [data]
     email = {{ $email | quote }}
     full_name = {{ $full_name | quote }}
-    project_folder = {{ $project_folder | quote }}
+    project_folder = {{ osClean (printf "%q" (print "$HOME/" $project_folder)) }}
