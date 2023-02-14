@@ -1,6 +1,8 @@
 {{- $email := promptStringOnce . "email" "Email address" -}}
 {{- $full_name := promptStringOnce . "full_name" "Full Name" -}}
+{{- $project_folder := promptStringOnce . "project_folder" "Default Projects Folder (relative to home) (`c` will cd you there)" -}}
 
 [data]
     email = {{ $email | quote }}
     full_name = {{ $full_name | quote }}
+    project_folder = {{ $project_folder | quote }}
