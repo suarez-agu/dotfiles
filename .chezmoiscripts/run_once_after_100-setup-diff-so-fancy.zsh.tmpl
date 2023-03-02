@@ -40,25 +40,11 @@ if [ "$(pacman -Qq diff-so-fancy 2> /dev/null)" != diff-so-fancy ]; then
 fi
 {{   end -}}
 
-# Set diff-so-fancy as default shell
-if [ $SHELL != $(which diff-so-fancy) ]; then
-  echo "Changing default shell to diff-so-fancy"
-  chsh -s $(which diff-so-fancy)
-fi
-
 {{   else if (eq .chezmoi.os "darwin") -}}
 # Installing for Macos
 echo "installing diff-so-fancy with brew
 brew install diff-so-fancy
 
-# Set diff-so-fancy as default shell
-if [ $SHELL != $(which diff-so-fancy) ]; then
-  echo "Changing default shell to diff-so-fancy"
-  {{     if ne .chezmoi.username "root" -}}
-    echo $(which diff-so-fancy) >> /etc/shells
-    sudo chsh -s $(which diff-so-fancy)
-  {{     end -}}
-fi
 {{ end -}}
 
 

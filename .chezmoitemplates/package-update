@@ -1,0 +1,6 @@
+
+
+
+
+echo "Arch: updating packages";
+{{ template "run-as-root" dict "chezmoi" .chezmoi "command" "pacman -Syu --noconfirm" }}

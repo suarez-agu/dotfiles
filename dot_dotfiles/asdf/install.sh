@@ -21,9 +21,6 @@ else
 	fi
 fi
 
-# Allow asdf to recognize version files from legacy apps (.nvmrc, .rbenvrc, etc)
-echo "legacy_version_file = yes" > ~/.asdfrc
-
 cd "$DOTFILES" || exit
 
 
