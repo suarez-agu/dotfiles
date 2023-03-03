@@ -37,14 +37,14 @@ fi
 
 {{   else if (eq .chezmoi.os "darwin") -}}
 # Installing zsh for Macos
-echo "installing zsh with brew
+echo "installing zsh with brew"
 brew install zsh
 
 # Set zsh as default shell
 if [ $SHELL != $(which zsh) ]; then
   echo "Changing default shell to zsh"
   {{     if ne .chezmoi.username "root" -}}
-    echo $(which zsh) >> /etc/shells
+	echo $(which zsh) | sudo tee -a /etc/shells
     sudo chsh -s $(which zsh)
   {{     end -}}
 fi
@@ -52,4 +52,5 @@ fi
 
 
 echo -e "\0033[0;32m>>>>> Finish Setting Up zsh Shell <<<<<\033[0m"
+
 {{ end -}}

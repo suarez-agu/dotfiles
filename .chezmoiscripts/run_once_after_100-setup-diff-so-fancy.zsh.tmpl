@@ -1,10 +1,9 @@
 {{ if (or (eq .chezmoi.os "linux") (eq .chezmoi.os "darwin")) -}}
-#!/bin/diff-so-fancy
+#!/bin/zsh
 set -eufo pipefail
 
 echo -e "\0033[0;32m>>>>> Begin Setting Up diff-so-fancy <<<<<\033[0m"
 
-# Installing for Linux
 {{ if (eq .chezmoi.os "linux") -}}
 # Installing for Linux
 {{   if (eq .chezmoi.osRelease.id "debian" "ubuntu") -}}
@@ -42,7 +41,7 @@ fi
 
 {{   else if (eq .chezmoi.os "darwin") -}}
 # Installing for Macos
-echo "installing diff-so-fancy with brew
+echo "installing diff-so-fancy with brew"
 brew install diff-so-fancy
 
 {{ end -}}
