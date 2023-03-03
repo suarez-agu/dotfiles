@@ -1,6 +1,10 @@
 [user]
 	email = {{ .email | quote }}
 	name = {{ .full_name | quote }}
+{{ if .has_alternate_profile -}}
+[includeIf "gitdir:{{ .alternate_project_folder }}"]
+    path = {{ .alternate_project_folder }}/.gitconfig
+{{- end }}
 [credential]
 	{{ if eq .chezmoi.os "darwin" -}}
 	helper = osxkeychain
