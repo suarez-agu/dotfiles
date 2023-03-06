@@ -1,0 +1,8 @@
+#!/bin/zsh
+{{- $aliasGlob := osClean (printf "%v%v" .chezmoi.sourceDir "/chezmoi-private/**/aliases.zsh") }}
+{{ $aliases := glob $aliasGlob -}}
+
+{{range $val := $aliases}}
+########## "{{ $val }}" ##########
+{{ include $val }}
+{{end}}

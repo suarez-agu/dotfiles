@@ -1,5 +1,3 @@
-#!/bin/sh
-
 alias kx='kubectx'
 alias kn='kubens'
 

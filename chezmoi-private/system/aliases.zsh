@@ -1,5 +1,3 @@
-#!/bin/sh
-
 alias grep="grep --color=auto"
 alias duf="du -sh * | sort -hr"
 alias less="less -r"

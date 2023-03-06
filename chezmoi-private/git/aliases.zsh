@@ -1,5 +1,3 @@
-#!/bin/sh
-
 alias gl='git pull --prune'
 alias glg="git log --graph --decorate --oneline --abbrev-commit"
 alias glga="glg --all"

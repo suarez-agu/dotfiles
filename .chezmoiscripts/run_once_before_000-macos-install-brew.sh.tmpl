@@ -4,7 +4,8 @@ set -eufo pipefail
 
 echo -e "\0033[0;32m>>>>> Begin Setting Up Brew for Macos <<<<<\033[0m"
 
-NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+#NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
 echo -e "\0033[0;32m>>>>> Finish Setting Up Brew for Macos <<<<<\033[0m"
 {{ end -}}

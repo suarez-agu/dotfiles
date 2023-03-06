@@ -28,6 +28,9 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
+# Load our alias file.
+source ".dotfiles/aliases.zsh"
+
 # all of our zsh files
 typeset -U config_files
 config_files=($DOTFILES/*/*.zsh)
@@ -40,6 +43,7 @@ done
 # load plugins
 . "$DOTFILES/znap/plugins.zsh"
 
+# TODO: not this, something more explicit
 # load everything but the path and completion files
 for file in ${${config_files:#*/path.zsh}:#*/completion.zsh}; do
   source "$file"
@@ -60,3 +64,7 @@ unset config_files
 # shellcheck disable=SC1090
 [ -f ~/.localrc ] && . ~/.localrc
 source "${XDG_CONFIG_HOME:-$HOME/.config}/asdf-direnv/zshrc"
+
+
+# Add chezmoi shell completions
+{{ completion "zsh" }}

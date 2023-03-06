@@ -1,4 +1,3 @@
-#!/bin/sh
 alias ls='exa --icons'
 alias ll='exa --icons -l'
 alias lll='exa --icons -l | less'

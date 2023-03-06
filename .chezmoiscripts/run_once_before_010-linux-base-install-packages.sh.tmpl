@@ -4,10 +4,10 @@ set -eufo pipefail
 
 echo -e "\0033[0;32m>>>>> Begin Setting Up Base Packages For Linux <<<<<\033[0m"
 
-PACKAGES = git curl tar
+PACKAGES=(git curl tar)
 
 echo "updating packages"
-{{ template "package-update" . }}
+{{ template "packagemanager-update" . }}
 
 # Installing zsh for Linux
 {{   if (eq .chezmoi.osRelease.id "debian" "ubuntu") -}}
