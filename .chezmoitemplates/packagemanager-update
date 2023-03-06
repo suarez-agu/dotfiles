@@ -6,8 +6,10 @@ echo "Deb/Ubuntu: updating packages";
 echo "Arch: updating packages";
 {{ template "run-as-root" dict "chezmoi" .chezmoi "command" "pacman -Syy --noconfirm" }}
 {{ end -}}
+
 {{   else if (eq .chezmoi.os "darwin") -}}
 brew update;
+
 {{   else if (eq .chezmoi.os "windows") -}}
 winget update;
 {{ end -}}

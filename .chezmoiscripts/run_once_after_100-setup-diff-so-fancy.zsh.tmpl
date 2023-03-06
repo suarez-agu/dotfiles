@@ -10,32 +10,19 @@ echo -e "\0033[0;32m>>>>> Begin Setting Up diff-so-fancy <<<<<\033[0m"
 ppa_repo_source=aos1/diff-so-fancy
 if ! $(apt-cache policy | grep http | awk '{print $2}' | sort -u | grep $ppa_repo_source &> /dev/null); then
   echo "adding ppa:$ppa_repo_source repository to apt"
-{{     if ne .chezmoi.username "root" -}}
-  sudo add-apt-repository -y ppa:$ppa_repo_source
-  sudo apt update
-{{     else -}}
-  add-apt-repository -y ppa:$ppa_repo_source
-  apt update
-{{     end -}}
+{{ template "run-as-root" dict "chezmoi" .chezmoi "add-apt-repository -y ppa:$ppa_repo_source" }}
+{{ template "run-as-root" dict "chezmoi" .chezmoi "apt update" }}
 fi
 
 if ! $(dpkg-query -W -f='installed' diff-so-fancy &> /dev/null); then
   echo "installing diff-so-fancy with apt"
-{{     if ne .chezmoi.username "root" -}}
-  sudo apt install -y diff-so-fancy
-{{     else -}}
-  apt install -y diff-so-fancy
-{{     end -}}
+{{ template "run-as-root" dict "chezmoi" .chezmoi "command" "apt install -y diff-so-fancy" }}
 fi
 
 {{   else if eq .chezmoi.osRelease.id "arch" -}}
 if [ "$(pacman -Qq diff-so-fancy 2> /dev/null)" != diff-so-fancy ]; then
   echo "installing diff-so-fancy with pacman"
-{{     if ne .chezmoi.username "root" -}}
-  sudo pacman -S --noconfirm diff-so-fancy
-{{     else -}}
-  pacman -S --noconfirm diff-so-fancy
-{{     end -}}
+{{ template "run-as-root" dict "chezmoi" .chezmoi "command" "pacman -S --noconfirm diff-so-fancy" }}
 fi
 {{   end -}}
 

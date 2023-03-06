@@ -9,30 +9,20 @@ echo -e "\0033[0;32m>>>>> Begin Setting Up Zsh Shell For Linux/Mac <<<<<\033[0m"
 {{   if (eq .chezmoi.osRelease.id "debian" "ubuntu") -}}
 if ! $(dpkg-query -W -f='installed' zsh &> /dev/null); then
   echo "installing zsh with apt"
-{{     if ne .chezmoi.username "root" -}}
-  sudo apt install -y zsh
-{{     else -}}
-  apt install -y zsh
-{{     end -}}
+{{ template "run-as-root" dict "chezmoi" .chezmoi "command" "apt install -y zsh" }}
 fi
 
 {{   else if eq .chezmoi.osRelease.id "arch" -}}
 if [ "$(pacman -Qq zsh 2> /dev/null)" != zsh ]; then
   echo "installing zsh with pacman"
-{{     if ne .chezmoi.username "root" -}}
-  sudo pacman -S --noconfirm zsh
-{{     else -}}
-  pacman -S --noconfirm zsh
-{{     end -}}
+{{ template "run-as-root" dict "chezmoi" .chezmoi "command" "pacman -S --noconfirm zsh" }}
 fi
 {{   end -}}
 
 # Set zsh as default shell
 if [ $SHELL != $(which zsh) ]; then
   echo "Changing default shell to zsh"
-  {{     if ne .chezmoi.username "root" -}}
-    sudo chsh -s $(which zsh)
-  {{     end -}}
+{{ template "run-as-root" dict "chezmoi" .chezmoi "command" "chsh -s $(which zsh)" }}
 fi
 
 {{   else if (eq .chezmoi.os "darwin") -}}
@@ -43,10 +33,13 @@ brew install zsh
 # Set zsh as default shell
 if [ $SHELL != $(which zsh) ]; then
   echo "Changing default shell to zsh"
-  {{     if ne .chezmoi.username "root" -}}
+{{  if ne .chezmoi.username "root" -}}
 	echo $(which zsh) | sudo tee -a /etc/shells
     sudo chsh -s $(which zsh)
-  {{     end -}}
+{{  else -}}
+	echo $(which zsh) | tee -a /etc/shells
+    chsh -s $(which zsh)
+{{  end -}}
 fi
 {{ end -}}
 
