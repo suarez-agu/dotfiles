@@ -2,6 +2,7 @@
 export LSCOLORS='exfxcxdxbxegedabagacad'
 export CLICOLOR=true
 
+# Add custom functions to fpath
 fpath=($DOTFILES/functions $fpath)
 
 autoload -U "$DOTFILES"/functions/*(:t)

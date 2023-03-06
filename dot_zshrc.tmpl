@@ -29,7 +29,13 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 # Load our alias file.
-source ".dotfiles/aliases.zsh"
+source "$DOTFILES/aliases.zsh"
+
+# Load our completions file.
+source "$DOTFILES/completions.zsh"
+
+# Load our paths file.
+source "$DOTFILES/paths.zsh"
 
 # all of our zsh files
 typeset -U config_files
