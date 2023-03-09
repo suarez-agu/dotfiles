@@ -1,5 +1,5 @@
 #!/bin/zsh
-{{- $pathGlob := osClean (printf "%v%v" .chezmoi.sourceDir "/chezmoi-private/**/path.zsh") }}
+{{- $pathGlob := osClean (printf "%v%v" .chezmoi.sourceDir "/.components/**/path.zsh") }}
 {{ $paths := glob $pathGlob -}}
 
 {{range $val := $paths}}

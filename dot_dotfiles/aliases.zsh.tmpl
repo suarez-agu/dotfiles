@@ -1,5 +1,5 @@
 #!/bin/zsh
-{{- $aliasGlob := osClean (printf "%v%v" .chezmoi.sourceDir "/chezmoi-private/**/aliases.zsh") }}
+{{- $aliasGlob := osClean (printf "%v%v" .chezmoi.sourceDir "/.components/**/aliases.zsh") }}
 {{ $aliases := glob $aliasGlob -}}
 
 {{range $val := $aliases}}

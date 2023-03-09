@@ -1,5 +1,5 @@
 #!/bin/zsh
-{{- $completionGlob := osClean (printf "%v%v" .chezmoi.sourceDir "/chezmoi-private/**/completion.zsh") }}
+{{- $completionGlob := osClean (printf "%v%v" .chezmoi.sourceDir "/.components/**/completion.zsh") }}
 {{ $completions := glob $completionGlob -}}
 
 {{range $val := $completions}}
