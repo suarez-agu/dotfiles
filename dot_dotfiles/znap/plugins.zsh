@@ -30,5 +30,5 @@ znap eval asdf-community/asdf-direnv "asdf exec $( asdf which direnv ) hook zsh"
 
 # If kubectl exists, install completions:
 if command -v kubectl &> /dev/null; then
-	znap fpath _kubectl 'kubectl completion  zsh'
+	znap fpath _kubectl 'kubectl completion zsh'
 fi
