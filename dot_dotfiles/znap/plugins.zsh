@@ -16,8 +16,6 @@ ZSH_AUTOSUGGEST_STRATEGY=( completion )
 ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=30
 znap source zsh-users/zsh-autosuggestions
 
-ZSH_HIGHLIGHT_HIGHLIGHTERS=( main brackets root )
-znap source zsh-users/zsh-syntax-highlighting
 znap source sbodiu-pivotal/fly-zsh-autocomplete-plugin
 
 # The cache gets regenerated, too, when the eval command has changed. For
@@ -25,10 +23,6 @@ znap source sbodiu-pivotal/fly-zsh-autocomplete-plugin
 # this variable has changed.
 znap source marlonrichert/zcolors
 znap eval   marlonrichert/zcolors "zcolors ${(q)LS_COLORS}"
-
-# these should be at last!
-znap source zdharma-continuum/fast-syntax-highlighting
-znap source zsh-users/zsh-history-substring-search
 
 # `znap eval` caches and runs any kind of command output for you.
 

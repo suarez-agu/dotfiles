@@ -55,8 +55,9 @@ done
 
 unset config_files
 
-# Use Starship Prompt
-eval "$(starship init zsh)"
+# these should be at last!
+znap source zdharma-continuum/fast-syntax-highlighting
+znap source zsh-users/zsh-history-substring-search
 
 # use .localrc for SUPER SECRET CRAP that you don't
 # want in your public, versioned repo.
@@ -64,6 +65,5 @@ eval "$(starship init zsh)"
 [ -f ~/.localrc ] && . ~/.localrc
 source "${XDG_CONFIG_HOME:-$HOME/.config}/asdf-direnv/zshrc"
 
-
-# Add chezmoi shell completions
-{{ completion "zsh" }}
+# Use Starship Prompt
+eval "$(starship init zsh)"
