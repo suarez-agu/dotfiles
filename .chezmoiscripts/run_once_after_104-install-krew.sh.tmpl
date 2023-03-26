@@ -14,6 +14,9 @@ echo -e "\0033[0;32m>>>>> Begin Setting Up Krew For Linux/Mac <<<<<\033[0m"
   ./"${KREW}" install krew
 )
 
+kubectl krew install ctx
+kubectl krew install ns
+
 
 echo -e "\0033[0;32m>>>>> Finish Setting Up Krew Shell <<<<<\033[0m"
 

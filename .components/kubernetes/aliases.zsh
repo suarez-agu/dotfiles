@@ -1,3 +1,6 @@
+alias kubectx='kubectl ctx'
+alias kubens='kubectl ns'
+
 alias kx='kubectx'
 alias kn='kubens'
 
