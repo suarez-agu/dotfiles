@@ -15,7 +15,6 @@ plugins=(
   asdf
   brew
   bundler
-  chucknorris
   common-aliases
   copyfile
   copypath
@@ -38,11 +37,11 @@ plugins=(
   fzf
 
   ports
-  zsh-git-fetch-merge
-  zsh-git-sync
-  zsh-mkc
-  zsh-open-pr
-  zsh-async
+  git-fetch-merge
+  git-sync
+  mkc
+  git-open-pr
+  async
   history-substring-search
   zsh-completions
   fast-syntax-highlighting
