@@ -16,6 +16,8 @@ ZSH_AUTOSUGGEST_STRATEGY=( completion )
 ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=30
 znap source zsh-users/zsh-autosuggestions
 
+ZSH_HIGHLIGHT_HIGHLIGHTERS=( main brackets root )
+znap source zsh-users/zsh-syntax-highlighting
 znap source sbodiu-pivotal/fly-zsh-autocomplete-plugin
 
 # The cache gets regenerated, too, when the eval command has changed. For
