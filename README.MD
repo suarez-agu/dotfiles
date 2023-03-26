@@ -10,4 +10,15 @@ sh -c "$(curl -fsLS get.chezmoi.io)" -- -b $HOME/.local/bin
 
 # TODOS
 
-- Handle Neovim install?
+- [ ] Handle Neovim install?
+- [ ] Hanlde Windows installs?
+  - [ ] Krew
+  - [ ] Starship
+
+
+
+
+```sh
+# Turn off dotnet telemetry
+DOTNET_CLI_TELEMETRY_OPTOUT=1
+```

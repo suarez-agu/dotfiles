@@ -4,7 +4,7 @@ set -eufo pipefail
 
 echo -e "\0033[0;32m>>>>> Begin Installing Packages for Linux/Mac <<<<<\033[0m"
 
-PACKAGES=(exa fzf kubectx)
+PACKAGES=(exa fzf)
 
 {{ if (eq .chezmoi.os "linux") -}}
 # Installing packages for Linux
