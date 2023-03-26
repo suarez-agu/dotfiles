@@ -1,0 +1,31 @@
+{{ if (or (eq .chezmoi.os "linux") (eq .chezmoi.os "darwin")) -}}
+#!/bin/bash
+set -eufo pipefail
+
+echo -e "\0033[0;32m>>>>> Begin Setting Up tmux For Linux/Mac <<<<<\033[0m"
+
+{{ if (eq .chezmoi.os "linux") -}}
+# Installing tmux for Linux
+{{   if (eq .chezmoi.osRelease.id "debian" "ubuntu") -}}
+if ! $(dpkg-query -W -f='installed' tmux &> /dev/null); then
+  echo "installing tmux with apt"
+{{ template "run-as-root" dict "chezmoi" .chezmoi "command" "apt install -y tmux" }}
+fi
+
+{{   else if eq .chezmoi.osRelease.id "arch" -}}
+if [ "$(pacman -Qq tmux 2> /dev/null)" != tmux ]; then
+  echo "installing tmux with pacman"
+{{ template "run-as-root" dict "chezmoi" .chezmoi "command" "pacman -S --noconfirm tmux" }}
+fi
+{{   end -}}
+
+{{   else if (eq .chezmoi.os "darwin") -}}
+# Installing tmux for Macos
+echo "installing tmux with brew"
+brew install tmux
+{{ end -}}
+
+
+echo -e "\0033[0;32m>>>>> Finish Setting Up tmux <<<<<\033[0m"
+
+{{ end -}}
