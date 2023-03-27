@@ -2,9 +2,6 @@
 # Load Dotfile defaults
 . "$HOME/.dotfiles/defaults.zsh"
 
-# Load our alias file.
-source "$DOTFILES/aliases.zsh"
-
 # Load our completions file.
 source "$DOTFILES/completions.zsh"
 
@@ -38,6 +35,9 @@ unset config_files
 
 # Load Oh-My-Zsh
 source $HOME/.oh-my-zsh/oh-my-zsh.sh
+
+# Load our alias file.
+source "$DOTFILES/aliases.zsh"
 
 # use .localrc for SUPER SECRET CRAP that you don't
 # want in your public, versioned repo.

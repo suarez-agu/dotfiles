@@ -15,6 +15,20 @@
     refreshPeriod = "0"
 ####################### /ASDF #######################
 
+####################### Tmux Plugin Manager #######################
+[".tmux/plugins/tpm"]
+    type = "git-repo"
+    url = "https://github.com/tmux-plugins/tpm.git"
+    refreshPeriod = "168h"
+####################### /Tmux Plugin Manager #######################
+
+####################### AstroNvim #######################
+[".config/nvim"]
+    type = "git-repo"
+    url = "https://github.com/AstroNvim/AstroNvim.git"
+    refreshPeriod = "168h"
+####################### /AstroNvim #######################
+
 ####################### Oh-My-Zsh #######################
 [".oh-my-zsh"]
     type = "archive"
@@ -131,6 +145,5 @@
 	url = "https://github.com/ryanoasis/nerd-fonts/releases/download/{{ $nerdFontsLatest }}/Meslo.zip"
 	exact = true
 	refreshPeriod = "168h"
-
 
 ####################### /Fonts #######################
