@@ -11,11 +11,9 @@ ZSH_HIGHLIGHT_HIGHLIGHTERS=( main brackets root )
 
 plugins=(
   alias-finder
-  aliases
   asdf
   brew
   bundler
-  common-aliases
   copyfile
   copypath
   docker-compose

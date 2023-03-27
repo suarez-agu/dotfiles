@@ -1,14 +1,21 @@
 {{- $asdfLatest := (gitHubLatestRelease "asdf-vm/asdf").TagName -}}
+{{- $nerdFontsLatest := (gitHubLatestRelease "ryanoasis/nerd-fonts").TagName -}}
+
+{{ $fontPathDict := dict "linux" ".fonts" "darwin" "Library/Fonts" "windows" "AppData/Local/Microsoft/Windows/Fonts" }}
+{{ $fontDir := osClean (get $fontPathDict .chezmoi.os) }}
 
 # asdf latest relase: {{ $asdfLatest }}
 
+####################### ASDF #######################
 [".asdf"]
     type = "archive"
     url = "https://github.com/asdf-vm/asdf/archive/refs/tags/{{ $asdfLatest }}.tar.gz"
     exact = false
     stripComponents = 1
     refreshPeriod = "0"
+####################### /ASDF #######################
 
+####################### Oh-My-Zsh #######################
 [".oh-my-zsh"]
     type = "archive"
     url = "https://github.com/ohmyzsh/ohmyzsh/archive/master.tar.gz"
@@ -86,3 +93,44 @@
 	exact = true
 	stripComponents = 1
 	refreshPeriod = "168h"
+####################### /Oh-My-Zsh #######################
+
+####################### Fonts #######################
+["{{ $fontDir }}/JetBrainsMono"]
+	type = "archive"
+	url = "https://github.com/ryanoasis/nerd-fonts/releases/download/{{ $nerdFontsLatest }}/JetBrainsMono.zip"
+	exact = true
+	refreshPeriod = "168h"
+
+["{{ $fontDir }}/Inconsolata"]
+	type = "archive"
+	url = "https://github.com/ryanoasis/nerd-fonts/releases/download/{{ $nerdFontsLatest }}/Inconsolata.zip"
+	exact = true
+	refreshPeriod = "168h"
+
+["{{ $fontDir }}/Hack"]
+	type = "archive"
+	url = "https://github.com/ryanoasis/nerd-fonts/releases/download/{{ $nerdFontsLatest }}/Hack.zip"
+	exact = true
+	refreshPeriod = "168h"
+
+["{{ $fontDir }}/FiraCode"]
+	type = "archive"
+	url = "https://github.com/ryanoasis/nerd-fonts/releases/download/{{ $nerdFontsLatest }}/FiraCode.zip"
+	exact = true
+	refreshPeriod = "168h"
+
+["{{ $fontDir }}/CascadiaCode"]
+	type = "archive"
+	url = "https://github.com/ryanoasis/nerd-fonts/releases/download/{{ $nerdFontsLatest }}/CascadiaCode.zip"
+	exact = true
+	refreshPeriod = "168h"
+
+["{{ $fontDir }}/Meslo"]
+	type = "archive"
+	url = "https://github.com/ryanoasis/nerd-fonts/releases/download/{{ $nerdFontsLatest }}/Meslo.zip"
+	exact = true
+	refreshPeriod = "168h"
+
+
+####################### /Fonts #######################
