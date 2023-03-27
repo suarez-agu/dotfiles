@@ -1,0 +1,15 @@
+{{ if (eq .chezmoi.os "darwin") -}}
+#!/bin/bash
+set -eufo pipefail
+
+echo -e "\0033[0;32m>>>>> Begin Setting Up Base Packages for Macos <<<<<\033[0m"
+
+echo "updating packages"
+{{ template "packagemanager-update" . }}
+
+PACKAGES=(git curl)
+
+brew install $PACKAGES
+
+echo -e "\0033[0;32m>>>>> Finish Setting Up zsh Shell <<<<<\033[0m"
+{{ end -}}

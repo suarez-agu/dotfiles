@@ -1,0 +1,37 @@
+{{ if (or (eq .chezmoi.os "linux") (eq .chezmoi.os "darwin")) -}}
+#!/bin/zsh
+set -eufo pipefail
+
+echo -e "\0033[0;32m>>>>> Begin Installing Default ASDF versions for Linux/Mac <<<<<\033[0m"
+
+function () {
+  local asdf_plugins=(
+	nodejs
+	python
+	neovim
+	direnv
+	kubectl
+	helm
+	k6
+	)
+
+	local tempFile=$HOME/.tool-versions.tmp
+
+	touch $tempFile
+
+	for plugin in $asdf_plugins
+	do
+		asdf plugin add $plugin || true
+		local plugin_version=$(asdf latest $plugin)
+		printf "${plugin} ${plugin_version}
+" >> $tempFile
+	done
+
+	mv -f $tempFile $HOME/.tool-versions
+
+	# Install direnv and kubectl explicitly as it's required below.
+	asdf install direnv latest
+	asdf install kubectl latest
+}
+
+{{ end -}}

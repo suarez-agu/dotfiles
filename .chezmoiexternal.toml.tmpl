@@ -1,0 +1,161 @@
+{{- $asdfLatest := (gitHubLatestRelease "asdf-vm/asdf").TagName -}}
+{{- $nerdFontsLatest := (gitHubLatestRelease "ryanoasis/nerd-fonts").TagName -}}
+
+{{ $fontPathDict := dict "linux" ".fonts" "darwin" "Library/Fonts" "windows" "AppData/Local/Microsoft/Windows/Fonts" }}
+{{ $fontDir := osClean (get $fontPathDict .chezmoi.os) }}
+
+# asdf latest relase: {{ $asdfLatest }}
+
+####################### ASDF #######################
+[".asdf"]
+    type = "archive"
+    url = "https://github.com/asdf-vm/asdf/archive/refs/tags/{{ $asdfLatest }}.tar.gz"
+    exact = false
+    stripComponents = 1
+    refreshPeriod = "0"
+####################### /ASDF #######################
+
+####################### Tmux Plugin Manager #######################
+[".tmux/plugins/tpm"]
+    type = "git-repo"
+    url = "https://github.com/tmux-plugins/tpm.git"
+    refreshPeriod = "168h"
+####################### /Tmux Plugin Manager #######################
+
+####################### AstroNvim #######################
+[".config/nvim"]
+    type = "git-repo"
+    url = "https://github.com/AstroNvim/AstroNvim.git"
+    refreshPeriod = "168h"
+####################### /AstroNvim #######################
+
+####################### Oh-My-Zsh #######################
+[".oh-my-zsh"]
+    type = "archive"
+    url = "https://github.com/ohmyzsh/ohmyzsh/archive/master.tar.gz"
+    exact = false
+    stripComponents = 1
+    refreshPeriod = "168h"
+
+# Custom OMZ Plugins
+[".oh-my-zsh/custom/plugins/fast-syntax-highlighting"]
+    type = "archive"
+    url = "https://github.com/zdharma-continuum/fast-syntax-highlighting/archive/master.tar.gz"
+    exact = true
+    stripComponents = 1
+    refreshPeriod = "168h"
+
+[".oh-my-zsh/custom/plugins/zsh-history-substring-search"]
+    type = "archive"
+    url = "https://github.com/zsh-users/zsh-history-substring-search/archive/master.tar.gz"
+    exact = true
+    stripComponents = 1
+    refreshPeriod = "168h"
+
+[".oh-my-zsh/custom/plugins/zsh-completions"]
+    type = "archive"
+    url = "https://github.com/zsh-users/zsh-completions/archive/master.tar.gz"
+    exact = true
+    stripComponents = 1
+    refreshPeriod = "168h"
+
+[".oh-my-zsh/custom/plugins/zsh-autosuggestions"]
+    type = "archive"
+    url = "https://github.com/zsh-users/zsh-autosuggestions/archive/master.tar.gz"
+    exact = true
+    stripComponents = 1
+    refreshPeriod = "168h"
+
+[".oh-my-zsh/custom/plugins/ports"]
+    type = "archive"
+    url = "https://github.com/caarlos0/ports/archive/master.tar.gz"
+    exact = true
+    stripComponents = 1
+    refreshPeriod = "168h"
+
+[".oh-my-zsh/custom/plugins/git-fetch-merge"]
+    type = "archive"
+    url = "https://github.com/caarlos0/zsh-git-fetch-merge/archive/master.tar.gz"
+    exact = true
+    stripComponents = 1
+    refreshPeriod = "168h"
+
+[".oh-my-zsh/custom/plugins/git-sync"]
+    type = "archive"
+    url = "https://github.com/caarlos0/zsh-git-sync/archive/master.tar.gz"
+    exact = true
+    stripComponents = 1
+    refreshPeriod = "168h"
+
+[".oh-my-zsh/custom/plugins/mkc"]
+	type = "archive"
+	url = "https://github.com/caarlos0/zsh-mkc/archive/master.tar.gz"
+	exact = true
+	stripComponents = 1
+	refreshPeriod = "168h"
+
+[".oh-my-zsh/custom/plugins/git-open-pr"]
+	type = "archive"
+	url = "https://github.com/caarlos0/zsh-open-pr/archive/master.tar.gz"
+	exact = true
+	stripComponents = 1
+	refreshPeriod = "168h"
+
+[".oh-my-zsh/custom/plugins/async"]
+	type = "archive"
+	url = "https://github.com/mafredri/zsh-async/archive/master.tar.gz"
+	exact = true
+	stripComponents = 1
+	refreshPeriod = "168h"
+####################### /Oh-My-Zsh #######################
+
+####################### Fonts #######################
+["{{ $fontDir }}/JetBrainsMono"]
+	type = "archive"
+	url = "https://github.com/ryanoasis/nerd-fonts/releases/download/{{ $nerdFontsLatest }}/JetBrainsMono.zip"
+	exact = true
+	refreshPeriod = "168h"
+
+["{{ $fontDir }}/Inconsolata"]
+	type = "archive"
+	url = "https://github.com/ryanoasis/nerd-fonts/releases/download/{{ $nerdFontsLatest }}/Inconsolata.zip"
+	exact = true
+	refreshPeriod = "168h"
+
+["{{ $fontDir }}/Hack"]
+	type = "archive"
+	url = "https://github.com/ryanoasis/nerd-fonts/releases/download/{{ $nerdFontsLatest }}/Hack.zip"
+	exact = true
+	refreshPeriod = "168h"
+
+["{{ $fontDir }}/FiraCode"]
+	type = "archive"
+	url = "https://github.com/ryanoasis/nerd-fonts/releases/download/{{ $nerdFontsLatest }}/FiraCode.zip"
+	exact = true
+	refreshPeriod = "168h"
+
+["{{ $fontDir }}/CascadiaCode"]
+	type = "archive"
+	url = "https://github.com/ryanoasis/nerd-fonts/releases/download/{{ $nerdFontsLatest }}/CascadiaCode.zip"
+	exact = true
+	refreshPeriod = "168h"
+
+["{{ $fontDir }}/Meslo"]
+	type = "archive"
+	url = "https://github.com/ryanoasis/nerd-fonts/releases/download/{{ $nerdFontsLatest }}/Meslo.zip"
+	exact = true
+	refreshPeriod = "168h"
+
+####################### /Fonts #######################
+
+####################### Docker Completions #######################
+[".docker/completions/_docker"]
+	type = "file"
+	url = "https://raw.githubusercontent.com/docker/cli/master/contrib/completion/zsh/_docker"
+	refreshPeriod = "168h"
+
+[".docker/completions/_docker-compose"]
+	type = "file"
+	url = "https://raw.githubusercontent.com/docker/compose/master/contrib/completion/zsh/_docker-compose"
+	refreshPeriod = "168h"
+####################### /Docker Completions #######################

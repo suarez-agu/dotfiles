@@ -1,0 +1,8 @@
+#!/bin/zsh
+{{- $pathGlob := osClean (printf "%v%v" .chezmoi.sourceDir "/.components/**/path.zsh") }}
+{{ $paths := glob $pathGlob -}}
+
+{{range $val := $paths}}
+########## "{{ $val }}" ##########
+{{ include $val }}
+{{end}}

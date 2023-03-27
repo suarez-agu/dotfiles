@@ -1,0 +1,15 @@
+{{/* Runs update before we upgrade all our packages */}}
+{{- template "packagemanager-update" . -}}
+{{ if (eq .chezmoi.os "linux") -}}
+{{   if (eq .chezmoi.osRelease.id "debian" "ubuntu") -}}
+echo "Deb/Ubuntu: updating packages";
+{{ template "run-as-root" dict "chezmoi" .chezmoi "command" "apt upgrade" }}
+{{   else if eq .chezmoi.osRelease.id "arch" -}}
+echo "Arch: updating packages";
+{{ template "run-as-root" dict "chezmoi" .chezmoi "command" "pacman -Syu --noconfirm" }}
+{{ end -}}
+{{   else if (eq .chezmoi.os "darwin") -}}
+brew upgrade;
+{{   else if (eq .chezmoi.os "windows") -}}
+# TODO: Add windows?
+{{ end -}}

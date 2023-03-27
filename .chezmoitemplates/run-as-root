@@ -1,0 +1,5 @@
+{{   if ne .chezmoi.username "root" -}}
+sudo {{ .command }}
+{{   else -}}
+{{ .command }}
+{{   end -}}
