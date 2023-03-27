@@ -10,16 +10,6 @@ sh -c "$(curl -fsLS get.chezmoi.io)" -- -b $HOME/.local/bin
 
 # TODOS
 
-- [ ] Handle Neovim install?
-- [ ] tmux config file? (tmux.conf) (https://github.com/ellie/dotfiles/blob/main/tmux.conf)
 - [ ] Hanlde Windows installs?
   - [ ] Krew
   - [ ] Starship
-
-
-
-
-```sh
-# Turn off dotnet telemetry
-DOTNET_CLI_TELEMETRY_OPTOUT=1
-```
