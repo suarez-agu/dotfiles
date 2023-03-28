@@ -9,3 +9,10 @@
 
 # Add local bin installs to path
 export PATH=$PATH:$HOME/.local/bin
+
+# Add Dotfiles bins to path
+export PATH=$PATH:$DOTFILES/bin
+
+fpath=($DOTFILES/functions $fpath)
+autoload -U "$DOTFILES"/functions/*(:t)
+
