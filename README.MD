@@ -1,4 +1,12 @@
 # Get Started
+> Migrating from the old dotfiles? run the following command to clean things up before you install: `rm -rf ~/.znap ~/.asdf ~/.dotfiles`
+
+## Github Access Token
+In order to avoid any issues with rate limiting on the GH API, I recommend adding a [personal access token](https://docs.github.com/en/enterprise-server@3.4/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token) to your shell env. You can do this by setting one of these env variables:
+- `CHEZMOI_GITHUB_ACCESS_TOKEN`
+- `GITHUB_ACCESS_TOKEN`
+- `GITHUB_TOKEN`
+
 
 ## Install chezmoi on your machine using the shell script.
 > We're installing it to the `~/.local/bin` directory to accomodate as many Unix-style OSs as possible.
