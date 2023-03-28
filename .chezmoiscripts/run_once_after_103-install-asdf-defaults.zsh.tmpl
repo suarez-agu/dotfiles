@@ -1,5 +1,7 @@
 {{ if (or (eq .chezmoi.os "linux") (eq .chezmoi.os "darwin")) -}}
 #!/bin/zsh
+# assign asdf binary as it won't be sourced yet
+
 set -eufo pipefail
 
 echo -e "\0033[0;32m>>>>> Begin Installing Default ASDF versions for Linux/Mac <<<<<\033[0m"
@@ -21,8 +23,8 @@ function () {
 
 	for plugin in $asdf_plugins
 	do
-		asdf plugin add $plugin || true
-		local plugin_version=$(asdf latest $plugin)
+		$HOME/.asdf/bin/asdf plugin add $plugin || true
+		local plugin_version=$($HOME/.asdf/bin/asdf latest $plugin)
 		printf "${plugin} ${plugin_version}
 " >> $tempFile
 	done
@@ -30,8 +32,8 @@ function () {
 	mv -f $tempFile $HOME/.tool-versions
 
 	# Install direnv and kubectl explicitly as it's required below.
-	asdf install direnv latest
-	asdf install kubectl latest
+	$HOME/.asdf/bin/asdf install direnv latest
+	$HOME/.asdf/bin/asdf install kubectl latest
 }
 
 {{ end -}}
