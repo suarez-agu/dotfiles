@@ -6,3 +6,6 @@
 ########## "{{ $val }}" ##########
 {{ include $val }}
 {{end}}
+
+# Add local bin installs to path
+export PATH=$PATH:$HOME/.local/bin
