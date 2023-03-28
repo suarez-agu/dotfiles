@@ -4,43 +4,38 @@
 zstyle ':omz:update' mode disabled
 zstyle :omz:plugins:iterm2 shell-integration yes
 
-ZSH_AUTOSUGGEST_STRATEGY=( completion )
-ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=30
+ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=100
 
 ZSH_HIGHLIGHT_HIGHLIGHTERS=( main brackets root )
 
+# Default OMZ Plugins
 plugins=(
-  alias-finder
-  asdf
-  brew
-  bundler
-  copyfile
-  copypath
-  docker-compose
-  docker
-  encode64
-  extract
-  fzf
-  gh
-  git
-  iterm2
-  kubectl
-  macos
-  ripgrep
-  rust
-  tmux
-  z
-  zsh-interactive-cd
-  dotnet
-  fzf
+	asdf
+	brew
+	docker-compose
+	docker
+	extract
+	fzf
+	git
+	iterm2
+	kubectl
+	macos
+	ripgrep
+	rust
+	tmux
+	z
+	dotnet
+	fzf
+)
 
-  ports
-  git-fetch-merge
-  git-sync
-  mkc
-  git-open-pr
-  async
-  history-substring-search
-  zsh-completions
-  fast-syntax-highlighting
+# Custom Plugins
+plugins+=(
+	ports
+	git-fetch-merge
+	git-sync
+	async
+	zsh-completions
+	fast-syntax-highlighting
+	zsh-history-substring-search
+	zsh-autosuggestions
 )

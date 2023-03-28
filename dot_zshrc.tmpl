@@ -2,9 +2,6 @@
 # Load Dotfile defaults
 . "$HOME/.dotfiles/defaults.zsh"
 
-# Load our completions file.
-source "$DOTFILES/completions.zsh"
-
 # Load our paths file.
 source "$DOTFILES/paths.zsh"
 
@@ -12,26 +9,17 @@ source "$DOTFILES/paths.zsh"
 typeset -U config_files
 config_files=($DOTFILES/*/*.zsh)
 
-# load the path files
-for file in ${(M)config_files:#*/path.zsh}; do
-  source "$file"
-done
-
 # TODO: not this, something more explicit
 # load everything but the path and completion files
 for file in ${${config_files:#*/path.zsh}:#*/completion.zsh}; do
   source "$file"
 done
 
-# load every completion after autocomplete loads
-for file in ${(M)config_files:#*/completion.zsh}; do
-  source "$file"
-done
-
-unset config_files
-
 # load plugins
 #. "$DOTFILES/oh-my-zsh/plugins.zsh"
+
+# Load our completions file.
+source "$DOTFILES/completions.zsh"
 
 # Load Oh-My-Zsh
 source $HOME/.oh-my-zsh/oh-my-zsh.sh
@@ -39,14 +27,15 @@ source $HOME/.oh-my-zsh/oh-my-zsh.sh
 # Load our alias file.
 source "$DOTFILES/aliases.zsh"
 
+# Force re-completion
+autoload -U compinit && compinit
+
 # use .localrc for SUPER SECRET CRAP that you don't
 # want in your public, versioned repo.
 # shellcheck disable=SC1090
 [ -f ~/.localrc ] && . ~/.localrc
-source "${XDG_CONFIG_HOME:-$HOME/.config}/asdf-direnv/zshrc"
-
-# Add asdf to path
-PATH=$PATH:$HOME/.asdf/shims:$HOME/.asdf/bin
 
 # Use Starship Prompt
 eval "$(starship init zsh)"
+
+unset config_files

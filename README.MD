@@ -14,6 +14,12 @@ sh -c "$(curl -fsLS get.chezmoi.io)" -- -b $HOME/.local/bin init --apply $GITHUB
 # Update the destination directory to match the target state
 chezmoi apply
 
+# Update the destination directory and refresh external files manually
+chezmoi apply -R
+
+# Update the destination directory and refresh the init files `promptStringOnce`, etc.
+chezmoi apply -R
+
 # Print the diff between the target state and the destination state
 chezmoi diff
 
