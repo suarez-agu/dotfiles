@@ -48,3 +48,7 @@ chezmoi cd
 - [ ] Hanlde Windows installs?
   - [ ] Krew
   - [ ] Starship
+
+
+# Useful Links
+Some of these files were directly inspired by [budimanjojo's dotfiles](https://github.com/budimanjojo/dotfiles)

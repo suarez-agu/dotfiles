@@ -1,0 +1,117 @@
+# Import Color Theme
+import:
+ - ~/.config/alacritty/themes/themes/one_dark.yaml
+env:
+  TERM: xterm-256color
+window:
+  dynamic_title: true
+  # TODO: Full for non-mac? Also fix padding for non-mac
+  decorations: transparent
+  dimensions:
+    columns: 0
+    lines: 0
+  padding:
+    x: 10
+    y: 25
+  dynamic_padding: false
+cursor:
+  # Cursor style
+  style:
+    # Cursor shape
+    #
+    # Values for `shape`:
+    #   - ▇ Block
+    #   - _ Underline
+    #   - | Beam
+    shape: Beam
+
+    # Cursor blinking state
+    #
+    # Values for `blinking`:
+    #   - Never: Prevent the cursor from ever blinking
+    #   - Off: Disable blinking by default
+    #   - On: Enable blinking by default
+    #   - Always: Force the cursor to always blink
+    blinking: On
+scrolling:
+  history: 10000
+font:
+  normal:
+    family: JetBrainsMono Nerd Font
+    style: Regular
+  size: 13.0
+draw_bold_text_with_bright_colors: true
+
+bell:
+  duration: 0
+live_config_reload: true
+key_bindings:
+  - { key: V,               mods: Control|Shift, action: Paste                            }
+  - { key: C,               mods: Control|Shift, action: Copy                             }
+  - { key: Insert,          mods: Shift,         action: PasteSelection                   }
+  - { key: Key0,            mods: Control,       action: ResetFontSize                    }
+  - { key: Equals,          mods: Control,       action: IncreaseFontSize                 }
+  - { key: NumpadAdd,       mods: Control,       action: IncreaseFontSize                 }
+  - { key: NumpadSubtract,  mods: Control,       action: DecreaseFontSize                 }
+  - { key: Minus,           mods: Control,       action: DecreaseFontSize                 }
+  - { key: Paste,                                action: Paste                            }
+  - { key: Copy,                                 action: Copy                             }
+  - { key: L,               mods: Control,       action: ClearLogNotice                   }
+  - { key: L,               mods: Control,       chars: "\x0c"                            }
+  - { key: Home,            mods: Alt,           chars: "\x1b[1;3H"                       }
+  - { key: Home,                                 chars: "\x1bOH",        mode: AppCursor  }
+  - { key: Home,                                 chars: "\x1b[H",        mode: ~AppCursor }
+  - { key: End,             mods: Alt,           chars: "\x1b[1;3F"                       }
+  - { key: End,                                  chars: "\x1bOF",        mode: AppCursor  }
+  - { key: End,                                  chars: "\x1b[F",        mode: ~AppCursor }
+  - { key: PageUp,          mods: Shift,         action: ScrollPageUp,   mode: ~Alt       }
+  - { key: PageUp,          mods: Shift,         chars: "\x1b[5;2~",     mode: Alt        }
+  - { key: PageUp,          mods: Control,       chars: "\x1b[5;5~"                       }
+  - { key: PageUp,          mods: Alt,           chars: "\x1b[5;3~"                       }
+  - { key: PageUp,                               chars: "\x1b[5~"                         }
+  - { key: PageDown,        mods: Shift,         action: ScrollPageDown, mode: ~Alt       }
+  - { key: PageDown,        mods: Shift,         chars: "\x1b[6;2~",     mode: Alt        }
+  - { key: PageDown,        mods: Control,       chars: "\x1b[6;5~"                       }
+  - { key: PageDown,        mods: Alt,           chars: "\x1b[6;3~"                       }
+  - { key: PageDown,                             chars: "\x1b[6~"                         }
+  - { key: Insert,                               chars: "\x1b[2~"                         }
+  - { key: Delete,                               chars: "\x1b[3~"                         }
+  - { key: Left,                                 chars: "\x1b[D",        mode: ~AppCursor }
+  - { key: Left,                                 chars: "\x1bOD",        mode: AppCursor  }
+  - { key: Right,                                chars: "\x1b[C",        mode: ~AppCursor }
+  - { key: Right,                                chars: "\x1bOC",        mode: AppCursor  }
+  - { key: Up,                                   chars: "\x1b[A",        mode: ~AppCursor }
+  - { key: Up,                                   chars: "\x1bOA",        mode: AppCursor  }
+  - { key: Down,                                 chars: "\x1b[B",        mode: ~AppCursor }
+  - { key: Down,                                 chars: "\x1bOB",        mode: AppCursor  }
+  - { key: NumpadEnter,                          chars: "\n"                              }
+
+#debug:
+  # Display the time it takes to redraw each frame.
+  #render_timer: false
+
+  # Keep the log file after quitting Alacritty.
+  #persistent_logging: false
+
+  # Log level
+  #
+  # Values for `log_level`:
+  #   - Off
+  #   - Error
+  #   - Warn
+  #   - Info
+  #   - Debug
+  #   - Trace
+  #log_level: Warn
+
+  # Renderer override.
+  #   - glsl3
+  #   - gles2
+  #   - gles2_pure
+  #renderer: None
+
+  # Print all received window events.
+  #print_events: false
+
+  # Highlight window damage information.
+  #highlight_damage: false
