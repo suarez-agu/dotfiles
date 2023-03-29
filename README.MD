@@ -1,5 +1,6 @@
 # Get Started
 > Migrating from the old dotfiles? run the following command to clean things up before you install: `rm -rf ~/.znap ~/.asdf ~/.dotfiles`
+> Make sure to backup your `~/.ssh/config` file as we're now managing that as part of this repo.
 
 ## Github Access Token
 In order to avoid any issues with rate limiting on the GH API, I recommend adding a [personal access token](https://docs.github.com/en/enterprise-server@3.4/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token) to your shell env. You can do this by setting one of these env variables:
