@@ -12,6 +12,8 @@ In order to avoid any issues with rate limiting on the GH API, I recommend addin
 > We're installing it to the `~/.local/bin` directory to accomodate as many Unix-style OSs as possible.
 
 I recommend forking the repo into your own `dotfiles` repo and then using the below command to install chezmoi, clone the repo and apply it in one step.
+> Note: this one-liner assumes it is cloning a repo called `dotfiles` from the user `$GITHUB_USERNAME`, make sure that's what you call your fork.
+> Otherwise, please check the `chezmoi` docs for how to specify a different repo name.
 ```shell
 sh -c "$(curl -fsLS get.chezmoi.io)" -- -b $HOME/.local/bin init --apply $GITHUB_USERNAME
 ```
