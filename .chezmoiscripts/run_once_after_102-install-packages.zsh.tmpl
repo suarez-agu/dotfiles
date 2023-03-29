@@ -4,7 +4,7 @@ set -eufo pipefail
 
 echo -e "\0033[0;32m>>>>> Begin Installing Packages for Linux/Mac <<<<<\033[0m"
 
-PACKAGES=(exa fzf tmux ripgrep bat)
+PACKAGES=(exa fzf tmux ripgrep bat alacritty)
 
 {{ if (eq .chezmoi.os "linux") -}}
 # Installing packages for Linux
@@ -29,4 +29,10 @@ brew install $PACKAGES
 echo -e "\0033[0;32m>>>>> Finish Installing Packages <<<<<\033[0m"
 
 {{ end -}}
+{{   else if (eq .chezmoi.os "windows") -}}
+$packages = @('fzf', 'sharkdp.bat', 'alacritty')
+foreach ($package in $packages) {
+winget install $package
+}
+
 {{ end -}}
