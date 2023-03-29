@@ -29,7 +29,7 @@ chezmoi apply
 chezmoi apply -R
 
 # Update the destination directory and refresh the init files `promptStringOnce`, etc.
-chezmoi apply -R
+chezmoi apply --init
 
 # Print the diff between the target state and the destination state
 chezmoi diff
