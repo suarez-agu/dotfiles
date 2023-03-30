@@ -22,7 +22,6 @@ plugins=(
 	macos
 	ripgrep
 	rust
-	tmux
 	z
 	dotnet
 	fzf

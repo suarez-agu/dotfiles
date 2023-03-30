@@ -1,4 +1,4 @@
-![](docs/screenshot_screenshot_terminal.png)
+![preview](https://raw.githubusercontent.com/heuristicAL/dotfiles/main/docs/screenshot_terminal.png)
 
 # Get Started
 > Migrating from the old dotfiles? run the following command to clean things up before you install: `rm -rf ~/.znap ~/.asdf ~/.dotfiles`
@@ -46,6 +46,18 @@ chezmoi upgrade
 chezmoi cd
 ```
 
+# Optional Configs
+
+## Autostart Tmux
+
+If you want to always use tmux when starting your terminal then add the below codeblock to your `~/.localrc` file.
+Useful when using Alacritty as it doesn't support tabs. Add this to your `.localrc`
+> Code based on [this stackoverflow answer]()
+```shell
+if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
+  exec tmux
+fi
+```
 
 
 # TODOS
