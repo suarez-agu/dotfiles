@@ -14,31 +14,33 @@ You can also [read my post on the subject](http://carlosbecker.com/posts/dotfile
 
 ## Decisions
 
-### Do not install a lot of software
+### Default `EDITOR`, `VEDITOR`, `PROJECTS` and `PROJECTS_ALTERNATE`
 
-At first, this repo contained the homebrew installation and other stuff like
-that. I realized it would be better to split that into another repo, so
-this one would contain only the configs, and the other handles only software
-installation.
-
-If you want to see what I install on my mac, check
-[this repo](https://github.com/caarlos0/macos).
-
-### Default `EDITOR`, `VEDITOR` and `PROJECTS`
-
-`VEDITOR` stands for "visual editor", and is set to `code` be default. `EDITOR`
+`VEDITOR` stands for "visual editor", and is set to `code` by default. `EDITOR`
 is set to `vim`.
 
-`PROJECTS` is default to `~/Code`. The shortcut to that folder in the shell
+You can change that by adding your custom overrides in `~/.localrc`.
+
+#### Projects
+
+`PROJECTS` is default to whatever is specified when you initialize the dotfiles. The shortcut to that folder in the shell
 is `c`.
 
-You can change that by adding your custom overrides in `~/.localrc`.
+`$PROJECTS_ALTERNATE` is default to nothing, unless you specify an alternate projects dir when you initialize the dotfiles.
+The shortcut to that folder in the shell is `c`.
+
+You can change these at initialization time or by running chezmoi with the `-init` flag (ex:`chezmoi apply --init`)
 
 ### Topical
 
 Everything's built around topic areas. If you're adding a new area to your
-forked dotfiles — say, "Erlang" — you can simply add a `erlang` directory and
-put files in there. Anything with an extension of `.zsh` will get automatically
+forked dotfiles — say, "Erlang" — you can simply add a `erlang` directory under the `components` directory and
+put files in there. The following files are automatically picked up by chezmoi and added to their respective
+files in `~/.dotfiles`:
+- `aliases.zsh`
+- `completion.zsh`
+- `path.zsh`
+Anything with an extension of `.zsh` will get automatically
 included into your shell. Anything with an extension of `.symlink` will get
 symlinked without extension into `$HOME` when you run `script/bootstrap`.
 

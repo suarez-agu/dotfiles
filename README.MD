@@ -1,3 +1,5 @@
+![](docs/screenshot_screenshot_terminal.png)
+
 # Get Started
 > Migrating from the old dotfiles? run the following command to clean things up before you install: `rm -rf ~/.znap ~/.asdf ~/.dotfiles`
 > Make sure to backup your `~/.ssh/config` file as we're now managing that as part of this repo.
