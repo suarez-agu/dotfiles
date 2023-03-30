@@ -50,6 +50,9 @@ chezmoi cd
 
 # TODOS
 
+- [ ] Fix issues that cropped up
+  - [ ] Source brew manually in the `after` scripts
+  - [ ] Install kubectl and specify global version as it currently is not, for some reason, making krew install crash.
 - [ ] Hanlde Windows installs?
   - [ ] Krew
   - [ ] Starship
