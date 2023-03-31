@@ -54,8 +54,10 @@ If you want to always use tmux when starting your terminal then add the below co
 Useful when using Alacritty as it doesn't support tabs. Add this to your `.localrc`
 > Code based on [this stackoverflow answer]()
 ```shell
-if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
-  exec tmux
+# Autostart tmux if terminal is one of `tmux_terms`
+tmux_terms=('alacritty' 'otherterms')
+if command -v tmux &> /dev/null && (($tmux_terms[(Ie)$TERM_PROGRAM])) && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
+  exec tmux a || tmux new
 fi
 ```
 

@@ -1,3 +1,17 @@
+# TODO: Handle powershell for windows
+{{ $macPath := get (dict "amd64" "/usr/local/bin/zsh" "arm64" "/opt/homebrew/bin/zsh") .chezmoi.arch -}}
+{{ $shellPathDict := dict "linux" "/usr/bin/zsh" "darwin" $macPath "windows" "pwsh.exe" -}}
+{{- $shellPath := osClean (get $shellPathDict .chezmoi.os) -}}
+
+shell:
+  program: {{ $shellPath }}
+{{- if (not (eq .chezmoi.os "windows")) }}
+  args:
+    - -l
+    - -c
+    - "tmux a || tmux new"
+{{ end -}}
+
 # Import Color Theme
 import:
  - ~/.config/alacritty/themes/themes/one_dark.yaml
@@ -60,6 +74,7 @@ colors:
     #   white: '#aeb3bb'
 env:
   TERM: xterm-256color
+  ALACRITTY: alacritty
 window:
   dynamic_title: true
   # TODO: Full for non-mac? Also fix padding for non-mac
