@@ -1,6 +1,11 @@
 # Get editor completions based on the config schema
 "$schema" = 'https://starship.rs/config-schema.json'
 
+# Prompt
+format = '$os $directory$all$line_break$character'
+# move the rest of the prompt to the right
+right_format = '$kubernetes'
+
 [aws]
 symbol = "  "
 
@@ -18,9 +23,14 @@ symbol = " "
 
 [directory]
 read_only = " "
+truncation_length = 4
+fish_style_pwd_dir_length = 1
 
 [docker_context]
 symbol = " "
+
+[dotnet]
+symbol = "󰌛 "
 
 [elixir]
 symbol = " "
@@ -55,6 +65,11 @@ symbol = " "
 [julia]
 symbol = " "
 
+[kubernetes]
+symbol = "󰻈 "
+disabled = false
+format = '[$symbol$context( \($namespace\))]($style)'
+
 [lua]
 symbol = " "
 
@@ -72,6 +87,9 @@ symbol = " "
 
 [nodejs]
 symbol = " "
+
+[os]
+disabled = false
 
 [os.symbols]
 Alpine = " "
@@ -127,7 +145,7 @@ symbol = "ﳒ "
 symbol = " "
 
 [rust]
-symbol = " "
+symbol = " "
 
 [scala]
 symbol = " "
