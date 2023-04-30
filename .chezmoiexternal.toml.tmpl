@@ -160,7 +160,7 @@
 	refreshPeriod = "168h"
 ####################### /Docker Completions #######################
 
-
+####################### Install Sad #######################
 {{- $chezmoiArch := (eq .chezmoi.arch "amd64") | ternary "x86_64" "aarch64" -}}
 {{ $sadOsDict := dict "linux" "unknown-linux-gnu" "darwin" "apple-darwin" "windows" "pc-windows-msvc" }}
 {{ $sadOs := get $sadOsDict .chezmoi.os }}
@@ -172,3 +172,4 @@
     refreshPeriod = "168h"
     [".local/bin/sad".filter]
         command = "funzip"
+####################### /Install Sad #######################
