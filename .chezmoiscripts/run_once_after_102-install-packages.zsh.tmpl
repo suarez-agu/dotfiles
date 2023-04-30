@@ -23,7 +23,7 @@ fi
 {{   else if (eq .chezmoi.os "darwin") -}}
 # Installing packages for Macos
 echo "installing packages with brew"
-brew install $PACKAGES
+{{ template "brew-executable" . }} install $PACKAGES
 
 
 echo -e "\0033[0;32m>>>>> Finish Installing Packages <<<<<\033[0m"

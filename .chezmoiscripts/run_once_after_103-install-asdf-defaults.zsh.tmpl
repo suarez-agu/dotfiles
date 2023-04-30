@@ -32,8 +32,11 @@ function () {
 	mv -f $tempFile $HOME/.tool-versions
 
 	# Install direnv and kubectl explicitly as it's required below.
-	$HOME/.asdf/bin/asdf install direnv latest
-	$HOME/.asdf/bin/asdf install kubectl latest
+	cd $HOME
+	$HOME/.asdf/bin/asdf install direnv
+	$HOME/.asdf/bin/asdf install kubectl
+	# return to chezmoi sourceDir
+	cd {{ .chezmoi.sourceDir }}
 }
 
 {{ end -}}

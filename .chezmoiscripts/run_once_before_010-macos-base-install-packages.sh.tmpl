@@ -9,7 +9,7 @@ echo "updating packages"
 
 PACKAGES=(git curl)
 
-brew install $PACKAGES
+{{ template "brew-executable" . }} install $PACKAGES
 
 echo -e "\0033[0;32m>>>>> Finish Setting Up zsh Shell <<<<<\033[0m"
 {{ end -}}

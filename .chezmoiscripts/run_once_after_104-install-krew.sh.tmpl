@@ -14,9 +14,12 @@ echo -e "\0033[0;32m>>>>> Begin Setting Up Krew For Linux/Mac <<<<<\033[0m"
   ./"${KREW}" install krew
 )
 
+# Go to HOME directory to pick up the proper kubectl version.
+cd $HOME
 kubectl krew install ctx
 kubectl krew install ns
-
+# return to chezmoi sourceDir
+cd {{ .chezmoi.sourceDir }}
 
 echo -e "\0033[0;32m>>>>> Finish Setting Up Krew Shell <<<<<\033[0m"
 
