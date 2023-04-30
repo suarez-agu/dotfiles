@@ -159,3 +159,16 @@
 	url = "https://raw.githubusercontent.com/docker/compose/master/contrib/completion/zsh/_docker-compose"
 	refreshPeriod = "168h"
 ####################### /Docker Completions #######################
+
+
+{{- $chezmoiArch := (eq .chezmoi.arch "amd64") | ternary "x86_64" "aarch64" -}}
+{{ $sadOsDict := dict "linux" "unknown-linux-gnu" "darwin" "apple-darwin" "windows" "pc-windows-msvc" }}
+{{ $sadOs := get $sadOsDict .chezmoi.os }}
+
+[".local/bin/sad"]
+    type = "file"
+    url = "https://github.com/ms-jpq/sad/releases/latest/download/{{ $chezmoiArch }}-{{ $sadOs }}.zip"
+    executable = true
+    refreshPeriod = "168h"
+    [".local/bin/sad".filter]
+        command = "funzip"
