@@ -14,7 +14,7 @@
 [difftool "diffmerge"]
 	cmd = diffmerge $LOCAL $REMOTE
 [interactive]
-    diffFilter = diff-so-fancy --patch
+    diffFilter = delta --color-only
 [alias]
 	co = checkout
 	count = shortlog -sn
@@ -52,19 +52,21 @@
 	autocrlf = input
 	whitespace = trailing-space,space-before-tab
 	precomposeunicode = true
-	pager = diff-so-fancy | less --tabs=4 -RFX
+	pager = delta
 [apply]
 	whitespace = nowarn
 [help]
 	autocorrect = 1
 [merge]
 	tool = diffmerge
+	conflictstyle = diff3
 [mergetool "diffmerge"]
 	cmd = diffmerge --merge --result=$MERGED $LOCAL $BASE $REMOTE
 	trustExitCode = true
 	keepBackup = false
 [diff]
 	tool = diffmerge
+	colorMoved = default
 [difftool]
 	prompt = false
 [grep]
@@ -78,3 +80,8 @@
 	template = ~/.dotfiles/git/template.txt
 [log]
 	showSignature = false
+[delta]
+    navigate = true    # use n and N to move between diff sections
+    light = false      # set to true if you're in a terminal w/ a light background color (e.g. the default macOS terminal)
+	line-numbers = true
+	side-by-side = true
