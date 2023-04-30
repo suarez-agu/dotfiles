@@ -28,7 +28,7 @@ fi
 {{   else if (eq .chezmoi.os "darwin") -}}
 # Installing zsh for Macos
 echo "installing zsh with brew"
-brew install zsh
+{{ template "brew-executable" . }} install zsh
 
 # Set zsh as default shell
 if [ $SHELL != $(which zsh) ]; then

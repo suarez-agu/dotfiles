@@ -29,7 +29,7 @@ fi
 {{   else if (eq .chezmoi.os "darwin") -}}
 # Installing for Macos
 echo "installing diff-so-fancy with brew"
-brew install diff-so-fancy
+{{ template "brew-executable" . }} install diff-so-fancy
 
 {{ end -}}
 
