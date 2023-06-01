@@ -6,6 +6,20 @@ format = '$os $directory$all$line_break$character'
 # move the rest of the prompt to the right
 right_format = '$kubernetes'
 
+
+[directory]
+read_only = " "
+truncation_length = 4
+fish_style_pwd_dir_length = 1
+
+[kubernetes]
+symbol = "󰻈 "
+disabled = false
+format = '[$symbol$context( \($namespace\))]($style)'
+
+[os]
+disabled = false
+
 [aws]
 symbol = "  "
 
@@ -20,11 +34,6 @@ symbol = " "
 
 [dart]
 symbol = " "
-
-[directory]
-read_only = " "
-truncation_length = 4
-fish_style_pwd_dir_length = 1
 
 [docker_context]
 symbol = " "
@@ -59,28 +68,26 @@ symbol = "⌘ "
 [hg_branch]
 symbol = " "
 
+[hostname]
+ssh_symbol = " "
+
 [java]
 symbol = " "
 
 [julia]
 symbol = " "
 
-[kubernetes]
-symbol = "󰻈 "
-disabled = false
-format = '[$symbol$context( \($namespace\))]($style)'
-
 [lua]
 symbol = " "
 
 [memory_usage]
-symbol = " "
+symbol = "󰍛 "
 
 [meson]
 symbol = "喝 "
 
 [nim]
-symbol = " "
+symbol = " "
 
 [nix_shell]
 symbol = " "
@@ -88,14 +95,13 @@ symbol = " "
 [nodejs]
 symbol = " "
 
-[os]
-disabled = false
-
 [os.symbols]
+Alpaquita = " "
 Alpine = " "
 Amazon = " "
 Android = " "
 Arch = " "
+Artix = " "
 CentOS = " "
 Debian = " "
 DragonFly = " "
@@ -108,6 +114,7 @@ Gentoo = " "
 HardenedBSD = "ﲊ "
 Illumos = " "
 Linux = " "
+Mabox = " "
 Macos = " "
 Manjaro = " "
 Mariner = " "
@@ -118,7 +125,7 @@ NixOS = " "
 OpenBSD = " "
 openSUSE = " "
 OracleLinux = " "
-Pop = " "
+Pop = " "
 Raspbian = " "
 Redhat = " "
 RedHatEnterprise = " "
@@ -130,7 +137,7 @@ Unknown = " "
 Windows = " "
 
 [package]
-symbol = " "
+symbol = "󰏗 "
 
 [pijul_channel]
 symbol = "🪺 "
@@ -152,3 +159,4 @@ symbol = " "
 
 [spack]
 symbol = "🅢 "
+
