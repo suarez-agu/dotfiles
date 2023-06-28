@@ -21,17 +21,13 @@ env:
   ALACRITTY: alacritty
 window:
   dynamic_title: true
-{{- if (eq .chezmoi.os "darwin") }}
-  decorations: transparent
-{{- else }}
   decorations: full
-{{- end }}
   dimensions:
     columns: 0
     lines: 0
   padding:
-    x: 10
-    y: 25
+    x: 5
+    y: 0
   dynamic_padding: false
 {{- if (eq .chezmoi.os "darwin") }}
 option_as_alt: Both
