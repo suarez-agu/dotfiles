@@ -270,12 +270,4 @@ copy_on_select true
 // or should each user have their own cursor (false)
 // Default: false
 //
-// mirror_session true
-
-// The folder in which Zellij will look for layouts
-//
-// layout_dir "/path/to/my/layout_dir"
-
-// The folder in which Zellij will look for themes
-//
-// theme_dir "/path/to/my/theme_dir"
+mirror_session false
