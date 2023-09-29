@@ -1,15 +1,22 @@
 # TODO: Handle powershell for windows
-{{ $macPath := get (dict "amd64" "/usr/local/bin/zsh" "arm64" "/opt/homebrew/bin/zsh") .chezmoi.arch -}}
-{{ $shellPathDict := dict "linux" "/usr/bin/zsh" "darwin" $macPath "windows" "pwsh.exe" -}}
+{{ $macBrewPath := get (dict "amd64" "/usr/local/bin/" "arm64" "/opt/homebrew/bin/") .chezmoi.arch -}}
+{{ $shellPathDict := dict "linux" "/usr/bin/zsh" "darwin" (print $macBrewPath "zsh") "windows" "pwsh.exe" -}}
 {{- $shellPath := osClean (get $shellPathDict .chezmoi.os) -}}
 
+{{ $zellijPathDict := dict "linux" "/usr/bin/zellij" "darwin" (print $macBrewPath "zellij") "windows" "zellij.exe" -}}
+{{- $zellijPath := osClean (get $zellijPathDict .chezmoi.os) -}}
+
+
+
 shell:
-  program: {{ $shellPath }}
 {{- if (not (eq .chezmoi.os "windows")) }}
+  program: {{ $zellijPath }}
   args:
-    - -l
-    - -c
-    - "tmux a || tmux new"
+    - options
+    - --default-shell
+    - {{ $shellPath }}
+{{ else }}
+  program: {{ $shellPath }}
 {{ end -}}
 
 import:
