@@ -1,10 +1,15 @@
 {{- $asdfLatest := (gitHubLatestRelease "asdf-vm/asdf").TagName -}}
+
+{{- $rtxLatest := (gitHubLatestRelease "jdx/rtx").Name -}}
+{{ $rtxOsNameDict := dict "linux" "linux" "darwin" "macos" "windows" "INVALID_OS" }}
+{{ $rtxOsName := (get $rtxOsNameDict .chezmoi.os) }}
+{{ $rtxOsArchDict := dict "amd64" "x64" "arm64" "arm64" }}
+{{ $rtxOsArch := (get $rtxOsArchDict .chezmoi.arch) }}
+
 {{- $nerdFontsLatest := (gitHubLatestRelease "ryanoasis/nerd-fonts").TagName -}}
 
 {{ $fontPathDict := dict "linux" ".fonts" "darwin" "Library/Fonts" "windows" "AppData/Local/Microsoft/Windows/Fonts" }}
 {{ $fontDir := osClean (get $fontPathDict .chezmoi.os) }}
-
-# asdf latest relase: {{ $asdfLatest }}
 
 ####################### ASDF #######################
 [".asdf"]
@@ -14,6 +19,13 @@
     stripComponents = 1
     refreshPeriod = "0"
 ####################### /ASDF #######################
+
+####################### RTX #######################
+[".local/bin/rtx"]
+    type = "archive-file"
+    url = "https://github.com/jdx/rtx/releases/download/{{ $rtxLatest }}/rtx-{{ $rtxLatest }}-{{ $rtxOsName }}-{{ $rtxOsArch }}.tar.gz"
+    path = "rtx/bin/rtx"
+####################### /RTX #######################
 
 ####################### AstroNvim #######################
 [".config/nvim"]
@@ -154,9 +166,9 @@
 ####################### /Docker Completions #######################
 
 ####################### Install Sad #######################
-{{- $chezmoiArch := (eq .chezmoi.arch "amd64") | ternary "x86_64" "aarch64" -}}
-{{ $sadOsDict := dict "linux" "unknown-linux-gnu" "darwin" "apple-darwin" "windows" "pc-windows-msvc" }}
-{{ $sadOs := get $sadOsDict .chezmoi.os }}
+{{ $chezmoiArch := (eq .chezmoi.arch "amd64") | ternary "x86_64" "aarch64" -}}
+{{ $sadOsDict := dict "linux" "unknown-linux-gnu" "darwin" "apple-darwin" "windows" "pc-windows-msvc" -}}
+{{ $sadOs := get $sadOsDict .chezmoi.os -}}
 
 [".local/bin/sad"]
     type = "file"
