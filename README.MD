@@ -48,19 +48,6 @@ chezmoi cd
 
 # Optional Configs
 
-## Autostart Tmux
-
-If you want to always use tmux when starting your terminal then add the below codeblock to your `~/.localrc` file.
-Useful when using Alacritty as it doesn't support tabs. Add this to your `.localrc`
-> Code based on [this stackoverflow answer]()
-```shell
-# Autostart tmux if terminal is one of `tmux_terms`
-tmux_terms=('alacritty' 'otherterms')
-if command -v tmux &> /dev/null && (($tmux_terms[(Ie)$TERM_PROGRAM])) && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
-  exec tmux a || tmux new
-fi
-```
-
 
 # TODOS
 
