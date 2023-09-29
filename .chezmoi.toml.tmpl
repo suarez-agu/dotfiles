@@ -6,12 +6,12 @@
 [data]
     full_name = {{ $full_name | quote }}
     email = {{ $email | quote }}
-    project_folder = {{ osClean (printf "%q" (print "$HOME/" $projectFolder)) }}
+    project_folder = {{ osClean (printf "%q" (print .chezmoi.homeDir "/" $projectFolder)) }}
     has_alternate_profile = {{ $hasAlternateProfile }}
 {{ if $hasAlternateProfile}}
 {{- $alternateEmail := promptStringOnce . "alternateEmail" "Alternate Email address" -}}
 {{- $alternateProjectFolder := promptStringOnce . "alternateProjectFolder" "Alternate Projects Folder (relative to home) (`ca` will cd you there)" }}
     alternate_email = {{ $alternateEmail | quote }}
-    alternate_project_folder = {{ osClean (printf "%q" (print "$HOME/" $alternateProjectFolder)) }}
+    alternate_project_folder = {{ osClean (printf "%q" (print .chezmoi.homeDir "/" $alternateProjectFolder)) }}
 {{     end -}}
 
