@@ -7,6 +7,14 @@
 {{ include $val }}
 {{end}}
 
+{{- $templatePathGlob := osClean (printf "%v%v" .chezmoi.sourceDir "/.components/**/path.zsh.tmpl") }}
+{{ $templatePaths := glob $templatePathGlob -}}
+
+{{range $val := $templatePaths}}
+########## "{{ $val }}" ##########
+{{ includeTemplate $val }}
+{{end}}
+
 # Add local bin installs to path
 export PATH=$PATH:$HOME/.local/bin
 
