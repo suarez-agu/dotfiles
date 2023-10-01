@@ -1,5 +1,3 @@
-{{- $asdfLatest := (gitHubLatestRelease "asdf-vm/asdf").TagName -}}
-
 {{- $rtxLatest := (gitHubLatestRelease "jdx/rtx").Name -}}
 {{ $rtxOsNameDict := dict "linux" "linux" "darwin" "macos" "windows" "INVALID_OS" }}
 {{ $rtxOsName := (get $rtxOsNameDict .chezmoi.os) }}
@@ -10,15 +8,6 @@
 
 {{ $fontPathDict := dict "linux" ".fonts" "darwin" "Library/Fonts" "windows" "AppData/Local/Microsoft/Windows/Fonts" }}
 {{ $fontDir := osClean (get $fontPathDict .chezmoi.os) }}
-
-####################### ASDF #######################
-[".asdf"]
-    type = "archive"
-    url = "https://github.com/asdf-vm/asdf/archive/refs/tags/{{ $asdfLatest }}.tar.gz"
-    exact = false
-    stripComponents = 1
-    refreshPeriod = "0"
-####################### /ASDF #######################
 
 ####################### RTX #######################
 [".local/bin/rtx"]
