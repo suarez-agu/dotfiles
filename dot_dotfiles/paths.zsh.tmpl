@@ -1,4 +1,3 @@
-#!/bin/zsh
 {{- $pathGlob := osClean (printf "%v%v" .chezmoi.sourceDir "/.components/**/path.zsh") }}
 {{ $paths := glob $pathGlob -}}
 
@@ -9,10 +8,11 @@
 
 {{- $templatePathGlob := osClean (printf "%v%v" .chezmoi.sourceDir "/.components/**/path.zsh.tmpl") }}
 {{ $templatePaths := glob $templatePathGlob -}}
+{{ $rootData := . -}}
 
 {{range $val := $templatePaths}}
 ########## "{{ $val }}" ##########
-{{ includeTemplate $val }}
+{{ includeTemplate $val $rootData }}
 {{end}}
 
 # Add local bin installs to path

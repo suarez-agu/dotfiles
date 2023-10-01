@@ -1,5 +1,5 @@
-#!/bin/sh
 # TODO: Do we need to activate shims by adding their directory to path here?
+{{ $rtxBin := (print .chezmoi.homeDir "/.local/bin/rtx" ) -}}
 
 # setup rtx
-{{ output "rtx" "activate" "zsh" }}
+eval "$({{ $rtxBin }} activate zsh)"
