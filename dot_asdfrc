@@ -1,2 +1,0 @@
-# Allow asdf to recognize version files from legacy apps (.nvmrc, .rbenvrc, etc)
-legacy_version_file = yes

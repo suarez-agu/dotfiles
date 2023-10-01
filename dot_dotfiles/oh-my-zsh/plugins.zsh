@@ -10,7 +10,6 @@ ZSH_HIGHLIGHT_HIGHLIGHTERS=( main brackets root )
 
 # Default OMZ Plugins
 plugins=(
-	asdf
 	brew
 	docker-compose
 	docker
