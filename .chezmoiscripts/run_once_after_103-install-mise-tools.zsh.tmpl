@@ -1,10 +1,10 @@
 {{ if (or (eq .chezmoi.os "linux") (eq .chezmoi.os "darwin")) -}}
 #!/bin/zsh
 
-{{- $configPath := osClean (print .chezmoi.homeDir "/.config/rtx/config.toml" ) }}
+{{- $configPath := osClean (print .chezmoi.homeDir "/.config/mise/config.toml" ) }}
 
 # Include file sum so that we re-run every time that file changes
 # {{ $configPath }} hash: {{ include $configPath | sha256sum }}
-rtx install
+mise install
 
 {{ end -}}
