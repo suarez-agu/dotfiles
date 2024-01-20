@@ -1,20 +1,20 @@
-{{- $rtxLatest := (gitHubLatestRelease "jdx/rtx").Name -}}
-{{ $rtxOsNameDict := dict "linux" "linux" "darwin" "macos" "windows" "INVALID_OS" }}
-{{ $rtxOsName := (get $rtxOsNameDict .chezmoi.os) }}
-{{ $rtxOsArchDict := dict "amd64" "x64" "arm64" "arm64" }}
-{{ $rtxOsArch := (get $rtxOsArchDict .chezmoi.arch) }}
+{{- $miseLatest := (gitHubLatestRelease "jdx/mise").Name -}}
+{{ $miseOsNameDict := dict "linux" "linux" "darwin" "macos" "windows" "INVALID_OS" }}
+{{ $miseOsName := (get $miseOsNameDict .chezmoi.os) }}
+{{ $miseOsArchDict := dict "amd64" "x64" "arm64" "arm64" }}
+{{ $miseOsArch := (get $miseOsArchDict .chezmoi.arch) }}
 
 {{- $nerdFontsLatest := (gitHubLatestRelease "ryanoasis/nerd-fonts").TagName -}}
 
 {{ $fontPathDict := dict "linux" ".fonts" "darwin" "Library/Fonts" "windows" "AppData/Local/Microsoft/Windows/Fonts" }}
 {{ $fontDir := osClean (get $fontPathDict .chezmoi.os) }}
 
-####################### RTX #######################
-[".local/bin/rtx"]
+####################### Mise #######################
+[".local/bin/mise"]
     type = "archive-file"
-    url = "https://github.com/jdx/rtx/releases/download/{{ $rtxLatest }}/rtx-{{ $rtxLatest }}-{{ $rtxOsName }}-{{ $rtxOsArch }}.tar.gz"
-    path = "rtx/bin/rtx"
-####################### /RTX #######################
+    url = "https://github.com/jdx/mise/releases/download/{{ $miseLatest }}/mise-{{ $miseLatest }}-{{ $miseOsName }}-{{ $miseOsArch }}.tar.gz"
+    path = "mise/bin/mise"
+####################### /Mise #######################
 
 ####################### AstroNvim #######################
 [".config/nvim"]
