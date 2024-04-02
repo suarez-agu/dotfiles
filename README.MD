@@ -48,12 +48,22 @@ chezmoi cd
 
 # Optional Configs
 
+# High-Level Tools Overview
+
+- zsh: shell of choice.
+- [zellij](https://zellij.dev/): tmux but modern, faster and with a more promising future.
+- [chezmoi](https://www.chezmoi.io/): used to manage these dotfiles and apply updates.
+- [mise](https://mise.jdx.dev/): install and manage multiple devtools versions (think `nvm`, but good and for almost all tools).
+- [alacritty](https://github.com/alacritty/alacritty): terminal emulator of choice.
+- [krew](https://krew.sigs.k8s.io/): kubectl plugins manager.
+- [k9s](https://k9scli.io/): kubectl TUI.
+- [bat](https://github.com/sharkdp/bat): cat but modern.
+- [eza](https://github.com/eza-community/eza): ls clone, but modern, with colors and with icons.
+- [helix](https://helix-editor.com/): nvim but simple and rust-based.
+
 
 # TODOS
 
-- [ ] Fix issues that cropped up
-  - [ ] Source brew manually in the `after` scripts
-  - [ ] Install kubectl and specify global version as it currently is not, for some reason, making krew install crash.
 - [ ] Hanlde Windows installs?
   - [ ] Krew
   - [ ] Starship
