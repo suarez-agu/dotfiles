@@ -27,8 +27,13 @@ fi
 {{   else if (eq .chezmoi.os "darwin") -}}
 # Installing packages for Macos
 echo "installing packages with brew"
+{{ template "brew-executable" . }} tap FelixKratz/formulae
 {{ template "brew-executable" . }} install $PACKAGES $MACOS_PACKAGES
+{{ template "brew-executable" . }} install --cask nikitabobko/tap/aerospace
+{{ template "brew-executable" . }} install borders
 
+# Start the window highlighter service
+{{ template "brew-executable" . }} services start borders
 
 echo -e "\0033[0;32m>>>>> Finish Installing Packages <<<<<\033[0m"
 
