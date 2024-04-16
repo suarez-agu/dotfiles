@@ -8,7 +8,7 @@ PACKAGES=(eza fzf zellij ripgrep bat alacritty git-delta helix k9s)
 ARCH_PACKAGES=(fd)
 DEBIAN_PACKAGES=(fd-find)
 MACOS_TAPS=("FelixKratz/formulae" "koekeishiya/formulae")
-MACOS_PACKAGES=("fd" "borders" "koekeishiya/formulae/yabai")
+MACOS_PACKAGES=("fd" "borders" "koekeishiya/formulae/yabai" "koekeishiya/formulae/skhd")
 
 
 {{ if (eq .chezmoi.os "linux") -}}
@@ -34,10 +34,6 @@ echo "Successfully tapped brew packages"
 
 
 {{ template "brew-executable" . }} install $PACKAGES $MACOS_PACKAGES
-{{ template "brew-executable" . }} install borders
-
-# Start the window highlighter service
-{{ template "brew-executable" . }} services start borders
 
 echo -e "\0033[0;32m>>>>> Finish Installing Packages <<<<<\033[0m"
 
