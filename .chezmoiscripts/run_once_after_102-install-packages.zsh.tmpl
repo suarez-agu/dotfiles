@@ -7,7 +7,8 @@ echo -e "\0033[0;32m>>>>> Begin Installing Packages for Linux/Mac <<<<<\033[0m"
 PACKAGES=(eza fzf zellij ripgrep bat alacritty git-delta helix k9s)
 ARCH_PACKAGES=(fd)
 DEBIAN_PACKAGES=(fd-find)
-MACOS_PACKAGES=(fd)
+MACOS_TAPS=("FelixKratz/formulae" "koekeishiya/formulae")
+MACOS_PACKAGES=("fd" "borders" "koekeishiya/formulae/yabai" "koekeishiya/formulae/skhd")
 
 
 {{ if (eq .chezmoi.os "linux") -}}
@@ -27,13 +28,12 @@ fi
 {{   else if (eq .chezmoi.os "darwin") -}}
 # Installing packages for Macos
 echo "installing packages with brew"
-{{ template "brew-executable" . }} tap FelixKratz/formulae
-{{ template "brew-executable" . }} install $PACKAGES $MACOS_PACKAGES
-{{ template "brew-executable" . }} install --cask nikitabobko/tap/aerospace
-{{ template "brew-executable" . }} install borders
+echo "tapping brew packages first"
+for x in $MACOS_TAPS; do {{ template "brew-executable" . }} tap $x; done
+echo "Successfully tapped brew packages"
 
-# Start the window highlighter service
-{{ template "brew-executable" . }} services start borders
+
+{{ template "brew-executable" . }} install $PACKAGES $MACOS_PACKAGES
 
 echo -e "\0033[0;32m>>>>> Finish Installing Packages <<<<<\033[0m"
 
