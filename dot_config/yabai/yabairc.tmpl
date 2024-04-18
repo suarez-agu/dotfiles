@@ -1,3 +1,8 @@
 {{ if eq .chezmoi.os "darwin" -}}
 {{- include "./dot_config/yabai/.yabairc" -}}
+
+{{- $validOsForBorders := semverCompare ">= 14.0.0" (output "sw_vers" "--productVersion" | trim) }}
+{{- if $validOsForBorders }}
+{{ template "brew-executable" . }} install borders
+{{ end }}
 {{- end }}
