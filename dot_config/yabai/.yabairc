@@ -43,6 +43,7 @@ yabai -m rule --add label="Select file to save to" app="^Inkscape$" title="Selec
 
 yabai -m config layout bsp
 
-borders active_color=0xfff6f6f7 inactive_color=0xff494d64 width=5.0 &
+# TODO: add this back once all PCs are on Macos 14+
+# borders active_color=0xfff6f6f7 inactive_color=0xff494d64 width=5.0 &
 
 echo "yabai configuration loaded.."
