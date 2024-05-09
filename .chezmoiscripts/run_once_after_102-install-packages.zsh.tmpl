@@ -36,7 +36,7 @@ echo "Successfully tapped brew packages"
 
 {{- $validOsForBorders := semverCompare ">= 14.0.0" (output "sw_vers" "--productVersion" | trim) }}
 {{- if $validOsForBorders }}
-{{ template "brew-executable" . }} install borders
+#{{ template "brew-executable" . }} install borders
 {{ end }}
 
 echo -e "\0033[0;32m>>>>> Finish Installing Packages <<<<<\033[0m"
