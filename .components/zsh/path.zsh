@@ -1,2 +1,2 @@
 export PATH=/usr/local/bin:$PATH
-export PATH=$XDG_CONFIG_HOME/bin:$PATH
+export PATH=$HOME/.local/bin:$PATH
