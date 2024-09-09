@@ -10,7 +10,7 @@ PACKAGES=(git curl tar unzip)
 	{{ template "run-as-root" dict "chezmoi" .chezmoi "command" "apt update" }}
 	{{ template "run-as-root" dict "chezmoi" .chezmoi "command" "apt install -y $PACKAGES" }}
 	echo "installing zsh with apt"
-	{{ template "run-as-root" dict "chezmoi" .chezmoi "command" "apt install zsh" }}
+	{{ template "run-as-root" dict "chezmoi" .chezmoi "command" "apt install -y zsh" }}
 {{ else if eq .chezmoi.osRelease.id "arch" -}}
 	{{ template "run-as-root" dict "chezmoi" .chezmoi "command" "apt install -y $PACKAGES" }}
 	echo "Arch: updating packages";
