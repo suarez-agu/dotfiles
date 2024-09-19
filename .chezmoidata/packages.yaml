@@ -1,0 +1,51 @@
+packages:
+    mise:
+    linux:
+        base_common:
+            - git
+            - curl
+            - tar
+            - unzip
+            - libssl-dev
+            - libbz2-dev
+            - libffi-dev
+            - libncurses5-dev
+            - zlib1g
+            - zlib1g-dev
+            - libreadline-dev
+            - libsqlite3-dev
+        common:
+            - zsh
+            - eza
+            - fzf
+            - ripgrep
+            - bat
+            - alacritty
+            - git-delta
+        ubuntu:
+            base:
+                - software-properties-common
+                - build-essential
+            repositories:
+#                - ppa:maveonair/helix-editor
+            apt:
+                - fd-find
+        arch:
+            - gcc
+    darwin:
+        taps:
+            - koekeishiya/formulae
+            - FelixKratz/formulae
+        brews:
+            - git
+            - curl
+            - unzip
+            - fd
+            - zellij
+            - borders
+            - koekeishiya/formulae/skhd
+            - koekeishiya/formulae/yabai
+            - zsh
+        casks:
+            - raycast
+    windows:
