@@ -3,19 +3,16 @@ set -eufo pipefail
 
 echo -e "\0033[0;32m>>>>> Begin Installing Packages for Linux/Mac <<<<<\033[0m"
 
-MACOS_TAPS=("FelixKratz/formulae" "koekeishiya/formulae")
-MACOS_PACKAGES=("fd" "koekeishiya/formulae/yabai" "koekeishiya/formulae/skhd" "zellij" "helix")
-
-# Installing packages for Macos
-echo "installing packages with brew"
-echo "tapping brew packages first"
-for x in $MACOS_TAPS; do {{ template "brew-executable" . }} tap $x; done
-echo "Successfully tapped brew packages"
-
-{{ template "brew-executable" . }} install $PACKAGES $MACOS_PACKAGES
-
-{{- $validOsForBorders := semverCompare ">= 14.0.0" (output "sw_vers" "--productVersion" | trim) }}
-{{- if $validOsForBorders }}
-{{ template "brew-executable" . }} install borders
+brew bundle --no-lock --file=/dev/stdin <<EOF
+{{ range .packages.darwin.taps -}}
+tap {{ . | quote }}
+{{ end -}}
+{{ range .packages.darwin.brews -}}
+brew {{ . | quote }}
+{{ end -}}
+{{ range .packages.darwin.casks -}}
+cask {{ . | quote }}
+{{ end -}}
+EOF
 
 echo -e "\0033[0;32m>>>>> Finish Installing Packages <<<<<\033[0m"

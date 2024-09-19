@@ -1,0 +1,32 @@
+#!/bin/bash
+set -eufo pipefail
+
+echo -e "\0033[0;32m>>>>> Begin Installing Packages for Linux/Mac <<<<<\033[0m"
+
+{{ if (eq .chezmoi.osRelease.id "debian" "ubuntu") -}}
+  echo "installing packages with apt"
+  export DEBIAN_FRONTEND=noninteractive
+{{ template "run-as-root" dict "chezmoi" .chezmoi "command" "apt update" }}
+
+{{ $allBasePackages := concat .packages.linux.base_common .packages.linux.ubuntu.base }}
+{{ $baseCommand := printf "apt install -y %s" (join " " $allBasePackages) }}
+{{ template "run-as-root" dict "chezmoi" .chezmoi "command" $baseCommand }}
+
+{{ if ne .packages.linux.ubuntu.repositories nil }}
+	{{ $repoCommand := printf "add-apt-repository -y %s" (join " " .packages.linux.ubuntu.repositories) }}
+	{{ template "run-as-root" dict "chezmoi" .chezmoi "command" $repoCommand }}
+	{{ template "run-as-root" dict "chezmoi" .chezmoi "command" "apt update" }}
+{{ end }}
+
+{{ $allPackages := concat .packages.linux.common .packages.linux.ubuntu.apt }}
+{{ $command := printf "apt install -y %s" (join " " $allPackages) }}
+{{ template "run-as-root" (dict "chezmoi" .chezmoi "command" $command) }}
+
+{{ else if eq .chezmoi.osRelease.id "arch" -}}
+if [ "$(pacman -Qq zsh 2> /dev/null)" != zsh ]; then
+  echo "installing packages with pacman"
+{{ template "run-as-root" dict "chezmoi" .chezmoi "command" "pacman -S --noconfirm " .packages.linux.common .packages.linux.arch }}
+fi
+{{ end -}}
+
+echo -e "\0033[0;32m>>>>> Finish Installing Packages <<<<<\033[0m"

@@ -2,8 +2,6 @@
 set -eufo pipefail
 
 echo -e "\0033[0;32m>>>>> Begin Setting Up Zsh Shell For Mac <<<<<\033[0m"
-echo "installing zsh with brew"
-{{ template "brew-executable" . }} install zsh
 
 # Set zsh as default shell
 if [ $SHELL != $(which zsh) ]; then

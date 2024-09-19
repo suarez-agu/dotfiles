@@ -15,8 +15,9 @@ echo -e "\0033[0;32m>>>>> Begin Setting Up Krew For Linux/Mac <<<<<\033[0m"
 
 # Go to HOME directory to pick up the proper kubectl version.
 cd $HOME
-kubectl krew install ctx
-kubectl krew install ns
+export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
+$HOME/.local/share/mise/installs/kubectl/latest/bin/kubectl krew install ctx
+$HOME/.local/share/mise/installs/kubectl/latest/bin/kubectl krew install ns
 # return to chezmoi sourceDir
 cd {{ .chezmoi.sourceDir }}
 
