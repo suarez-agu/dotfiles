@@ -19,11 +19,9 @@ plugins=(
 	iterm2
 	kubectl
 	macos
-	ripgrep
 	rust
 	z
 	dotnet
-	fzf
 )
 
 # Custom Plugins
