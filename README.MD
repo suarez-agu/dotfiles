@@ -61,6 +61,17 @@ chezmoi cd
 - [eza](https://github.com/eza-community/eza): ls clone, but modern, with colors and with icons.
 - [helix](https://helix-editor.com/): nvim but simple and rust-based.
 
+# Testing
+You may run the following to test the setup and install steps using docker.
+
+You can also add `--interactive` to run everything step by step
+
+```shell
+docker run --rm -it -v $HOME/dev/dotfiles:/dotfiles ubuntu:latest \
+	/bin/sh -c "apt update && apt install -y curl && sh -c $(curl -fsLS get.chezmoi.io) \
+	-- apply -S /dotfiles --init  --verbose && $(which zsh)"
+```
+
 
 # TODOS
 
